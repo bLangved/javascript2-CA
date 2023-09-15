@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatably | Profile</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- SCSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+    <!-- Placeholder Favicon -->
+    <link
+      rel="shortcut icon"
+      href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=16"
+      type="image/x-icon"
+    />
+    <!-- Fontawesome icons -->
+    <script
+      src="https://kit.fontawesome.com/4652493b4c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="container-fluid">
+      <div class="row align-items-center">
+        <!-- Nav -->
+        <nav class="col-3 navbar navbar-expand-lg">
+          <button
+            class="navbar-toggler ms-3 d-flex justify-content-center align-items-center d-lg-none"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-3">
+              <li class="nav-item">
+                <a class="nav-link header-link" href="../feed/index.html"
+                  >Feed</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header-link" href="../index.html">Log out</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Searchbar -->
+        <div class="col-6 mb-3 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Chatably"
+          />
+        </div>
+        <!-- Profile -->
+        <div class="col-3 p-0">
+          <a href="../profile/index.html">
+            <img
+              src="/IMAGES/people_thumbnails/johnwick.jpg"
+              alt="profile image"
+              class="nav-timg me-3"
+          /></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- 1.container-->
+          <div
+            class="container col-lg-3 d-none d-lg-block first-container quick-link-section"
+          >
+            <div class="ql-theme mb-3 mt-3">
+              <div class="col-3 text-center">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Markedplace</a>
+              </div>
+            </div>
+            <div class="ql-theme mb-3">
+              <div class="col-3 text-center">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Groups</a>
+              </div>
+            </div>
+            <div class="ql-theme mb-3">
+              <div class="col-3 text-center">
+                <i class="fa-regular fa-calendar-days"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Events</a>
+              </div>
+            </div>
+            <div class="ql-theme mb-3">
+              <div class="col-3 text-center">
+                <i class="fa-solid fa-file"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Pages</a>
+              </div>
+            </div>
+            <div class="ql-theme mb-3">
+              <div class="col-3 text-center">
+                <i class="fa-solid fa-floppy-disk"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Saved</a>
+              </div>
+            </div>
+            <div class="ql-theme mb-3">
+              <div class="col-3 text-center">
+                <i class="fa-solid fa-image"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Photos</a>
+              </div>
+            </div>
+            <div class="ql-theme mb-3">
+              <div class="col-3 text-center">
+                <i class="fa-solid fa-file"></i>
+              </div>
+              <div class="col-9">
+                <a href="#">Files</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2.container-->
+          <div class="col-md-9 col-lg-6 second-container">
+            <!-- Profile Info -->
+            <div class="col text-center mt-3">
+              <img
+                src="/IMAGES/people_thumbnails/johnwick.jpg"
+                class="img-thumbnail profile-img"
+                alt="Profile Image"
+              />
+              <h1 class="profile-name mt-3">John Wick</h1>
+              <button type="button" class="btn btn-primary mb-3">Follow</button>
+              <div class="profile-follow-container">
+                <span class="me-3"><strong>15</strong> Following</span>
+                <span><strong>1.3m</strong> Followers</span>
+              </div>
+            </div>
+            <div class="list-group list-group-horizontal mb-3 mt-3">
+              <button
+                type="button"
+                class="list-group-item list-group-item-action text-center active"
+                aria-current="true"
+              >
+                Feed
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action text-center"
+              >
+                About
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action text-center"
+              >
+                Friends
+              </button>
+              <button
+                type="button"
+                class="list-group-item list-group-item-action text-center"
+              >
+                Photos
+              </button>
+            </div>
+
+            <!-- User Posts -->
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-top-section mb-3 d-flex align-items-center">
+                    <img
+                      class="me-3"
+                      src="/IMAGES/people_thumbnails/johnwick.jpg"
+                      alt="friend-profilepicture"
+                    />
+                    <div class="card-top-text d-flex flex-column">
+                      <span>John Wick</span>
+                      <span>1 min ago</span>
+                    </div>
+                  </div>
+                  <h3 class="card-title post-title">
+                    Somebody just killed my dog
+                  </h3>
+                  <p class="card-text">
+                    On my way to the Continental. Shit's about to go down.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-top-section mb-3 d-flex align-items-center">
+                    <img
+                      class="me-3"
+                      src="/IMAGES/people_thumbnails/johnwick.jpg"
+                      alt="friend-profilepicture"
+                    />
+                    <div class="card-top-text d-flex flex-column">
+                      <span>John Wick</span>
+                      <span>2 days ago</span>
+                    </div>
+                  </div>
+                  <h3 class="card-title post-title">
+                    Just chill'n with my dog
+                  </h3>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Perferendis, vel, at repellendus, quidem molestias
+                    doloremque modi unde tempore distinctio officiis voluptatum.
+                    Repellat mollitia libero impedit sunt, laudantium nostrum
+                    eaque culpa!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-top-section mb-3 d-flex align-items-center">
+                    <img
+                      class="me-3"
+                      src="/IMAGES/people_thumbnails/johnwick.jpg"
+                      alt="friend-profilepicture"
+                    />
+                    <div class="card-top-text d-flex flex-column">
+                      <span>John Wick</span>
+                      <span>7 days ago</span>
+                    </div>
+                  </div>
+                  <h3 class="card-title post-title">
+                    Just got a new bike today. Great stuff
+                  </h3>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Perferendis, vel, at repellendus, quidem molestias
+                    doloremque modi unde tempore distinctio officiis voluptatum.
+                    Repellat mollitia libero impedit sunt, laudantium nostrum
+                    eaque culpa!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-top-section mb-3 d-flex align-items-center">
+                    <img
+                      class="me-3"
+                      src="/IMAGES/people_thumbnails/johnwick.jpg"
+                      alt="friend-profilepicture"
+                    />
+                    <div class="card-top-text d-flex flex-column">
+                      <span>John Wick</span>
+                      <span>3 weeks ago</span>
+                    </div>
+                  </div>
+                  <h3 class="card-title post-title">Yeah...</h3>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Perferendis, vel, at repellendus, quidem molestias
+                    doloremque modi unde tempore distinctio officiis voluptatum.
+                    Repellat mollitia libero impedit sunt, laudantium nostrum
+                    eaque culpa!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 3.container-->
+          <div class="container col-md-3 d-none d-md-block third-container">
+            <!--Friends section-->
+            <div>
+              <div class="mb-3 mt-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search friends"
+                />
+              </div>
+              <div class="friends-section mt-3">
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person1.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">James Forden</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person2.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Anders Haug</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person3.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Lisa Lilter</a>
+                  <i class="ms-auto fa-solid fa-globe status_offline"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person4.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Hans Hansen</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person5.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Henrikke Reklestad</a>
+                  <i class="ms-auto fa-solid fa-globe status_offline"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person6.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Michaela Johnson</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person7.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Gunhilda Fryer</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person8.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Marion Fencer</a>
+                  <i class="ms-auto fa-solid fa-globe status_offline"></i>
+                </div>
+                <div
+                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person9.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">John Frekler</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <!--Group conversations - section-->
+            <div>
+              <div class="group-conversation-title">Group conversations</div>
+              <div class="groups-section mt-3">
+                <div
+                  class="col-md-12 group-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person1.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person3.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Groupname 1</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 group-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person2.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person9.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Groupname 2</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+                <div
+                  class="col-md-12 group-list pb-3 d-flex align-items-center"
+                >
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person5.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <img
+                    class="me-2"
+                    src="/IMAGES/people_thumbnails/person6.jpeg"
+                    alt="friend-profilepicture"
+                  />
+                  <a href="#">Groupname 3</a>
+                  <i class="ms-auto fa-solid fa-globe status_online"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container">
+      <div class="row align-items-center footer-items">
+        <span class="col text-center">Copyright Chatably</span>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+$primary: #216db3;
+$secondary: #0e4477;
+$colors: (
+    "light-primary": #fcfcfc,
+    "light-secondary": #fafafa,
+    "dark-primary": #0a0a0a,
+    "dark-secondary": #1e1e1e,
+    "text-light": #f0f0f0,
+    "text-dark": #1a1a1a
+);
+
+$borderRadius-sm: (
+    border-radius: 0.5em,
+);
+$borderRadius-m: (
+    border-radius: 1em,
+);
+$borderRadius-lg: (
+    border-radius: 1.5em,
+);
+
+$hoverObject: (
+    opacity: 0.75,
+    transition: opacity 0.25s,
+);
+$hoverText: (
+  background-color: lightgray,
+  border-radius: 0.5em,
+  transition: 0.25s ease,
+);
+

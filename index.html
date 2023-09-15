@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatably | Login</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- SCSS -->
+    <link rel="stylesheet" href="dist/css/styles.css" />
+    <!-- Placeholder Favicon -->
+    <link
+      rel="shortcut icon"
+      href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=16"
+      type="image/x-icon"
+    />
+    <!-- Fontawesome icons -->
+    <script
+      src="https://kit.fontawesome.com/4652493b4c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="auth-main d-flex align-items-center justify-content-center">
+      <div class="container px-4">
+        <div class="row">
+          <div
+            class="auth-logo-container col-12 d-flex align-items-center justify-content-center mx-auto"
+          >
+            <div class="text-center">
+              <img
+                src="/IMAGES/auth-logo.png"
+                alt="Logo"
+                class="auth-logo mb-3"
+              />
+              <p>
+                Chatably helps you stay in touch with the people around you.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 auth-form-container mx-auto">
+            <div class="row d-flex justify-content-center">
+              <div class="card">
+                <div class="card-body">
+                  <form action="./feed/index.html" method="get">
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        required
+                      />
+                    </div>
+                    <div class="form-group mt-3">
+                      <label for="password">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        minlength="8"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block mt-3 col-12"
+                    >
+                      Login
+                    </button>
+                  </form>
+                  <div class="text-center mt-4">
+                    <p>
+                      Don't have an account?
+                      <a
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#registerModal"
+                        ><strong>Register here</strong></a
+                      >.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register Modal -->
+      <div
+        class="modal fade"
+        id="registerModal"
+        tabindex="-1"
+        aria-labelledby="registerModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registerModalLabel">Register</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="/profile" method="POST">
+                <div class="form-group">
+                  <label for="registerEmail">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="registerEmail"
+                    name="registerEmail"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="registerPassword">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="registerPassword"
+                    name="registerPassword"
+                    minlength="8"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div
+        class="d-flex align-items-center justify-content-center footer-items"
+      >
+        <span class="text-center">Copyright Chatably</span>
+      </div>
+    </footer>
+  </body>
+</html>

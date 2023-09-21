@@ -42,57 +42,78 @@
             </div>
           </div>
 
-          <!-- Login section -->
+          <!-- Login user section -->
           <div class="col-12 auth-form-container mx-auto">
             <div class="row d-flex justify-content-center">
               <div class="card">
                 <div class="card-body">
-                  <form
-                    class="login-form"
-                    action="./feed/index.html"
-                    method="get"
-                  >
+                  <section class="text-center">
+                    <div id="loginUserSucsessful" class="d-none">
+                      <span>Login was sucsessful! Please wait a moment...</span>
+                    </div>
+                    <div id="loginUserError" class="d-none">
+                      <span>Login was unsucsessful</span><br />
+                      <a href="index.html"
+                        ><strong
+                          >Click here to refresh site, and try again</strong
+                        ></a
+                      >
+                    </div>
+                  </section>
+
+                  <form class="login-form" id="loginForm" method="POST">
                     <div class="form-group mb-3">
-                      <label for="loginEmail">Email</label>
+                      <label for="emailLogin">Email</label>
                       <i
-                        class="fa-solid fa-check loginIcon-sucsess d-none"
-                        id="loginEmailSucsess"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
+                        id="emailLoginSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark loginIcon-error d-none"
-                        id="loginEmailError"
+                        class="fa-solid fa-xmark iconForm-error d-none"
+                        id="emailLoginError"
                       ></i>
                       <input
                         type="email"
                         class="form-control"
-                        id="loginEmail"
-                        name="email"
+                        id="emailLogin"
+                        name="emailLogin"
                         required
                       />
+                      <span id="emailErrorMessage" class="error-message"></span>
                     </div>
                     <div class="form-group mb-4">
-                      <label for="loginPassword">Password</label>
+                      <label for="passwordLogin">Password</label>
                       <i
-                        class="fa-solid fa-check loginIcon-sucsess d-none"
-                        id="loginPasswordSucsess"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
+                        id="passwordLoginSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark loginIcon-error d-none"
-                        id="loginPasswordError"
+                        class="fa-solid fa-xmark iconForm-error d-none"
+                        id="passwordLoginError"
                       ></i>
                       <input
                         type="password"
                         class="form-control"
-                        id="loginPassword"
-                        name="password"
+                        id="passwordLogin"
+                        name="passwordLogin"
                         minlength="8"
                         required
                       />
+                      <span
+                        id="passwordErrorMessage"
+                        class="error-message"
+                      ></span>
+                    </div>
+                    <div
+                      id="loginUserErrorMessage"
+                      class="error-message mb-2 mt-2 d-none"
+                    >
+                      Login credentials are not correctly filled out
                     </div>
                     <button
                       type="submit"
                       class="btn btn-primary btn-block col-12"
-                      id="loginButton"
+                      id="submitButtonLogin"
                     >
                       Login
                     </button>
@@ -134,7 +155,7 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="js/forms/mainLogin.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/forms/loginUserForm.js"></script>
+    <script type="module" src="js/autentication/loginUser.js"></script>
   </body>
 </html>

@@ -24,9 +24,7 @@ export async function registerUser(url, userData){
         console.log(response);
         const json = await response.json();
         console.log(json);
-        createSucsessfulContainer.classList.toggle("d-none");
     } catch (error) {
         console.log(error)
-        createErrorContainer.classList.toggle("d-none");
     }
 };

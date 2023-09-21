@@ -43,7 +43,7 @@
             </div>
           </div>
 
-          <!-- create section -->
+          <!-- create user section -->
           <div class="col-12 auth-form-container mx-auto">
             <div class="row d-flex justify-content-center">
               <div class="card">
@@ -68,16 +68,17 @@
                       >
                     </div>
                   </section>
+
                   <form class="create-form" id="createForm" method="POST">
                     <!--First name-->
                     <div class="form-group mb-3">
                       <label for="createFirstName">First name</label>
                       <i
-                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
                         id="createFirstNameSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark createIcon-error d-none"
+                        class="fa-solid fa-xmark iconForm-error d-none"
                         id="createFirstNameError"
                       ></i>
                       <input
@@ -96,11 +97,11 @@
                     <div class="form-group mb-3">
                       <label for="createLastName">Last name</label>
                       <i
-                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
                         id="createLastNameSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark createIcon-error d-none"
+                        class="fa-solid fa-xmark iconForm-error d-none"
                         id="createLastNameError"
                       ></i>
                       <input
@@ -119,31 +120,45 @@
                     <div class="form-group mb-3">
                       <label for="createEmail">Email</label>
                       <i
-                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
                         id="createEmailSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark createIcon-error d-none"
+                        class="fa-solid fa-xmark iconForm-error d-none"
                         id="createEmailError"
                       ></i>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="createEmail"
-                        name="createEmail"
-                        required
-                      />
+                      <div class="row align-items-center">
+                        <div class="col-6">
+                          <input
+                            type="email"
+                            class="form-control col-6"
+                            id="createEmail"
+                            name="createEmail"
+                            required
+                          />
+                        </div>
+                        <div class="col-6">
+                          <select class="form-select" id="emailType">
+                            <option value="stud.noroff.no">
+                              @stud.noroff.no (Student)
+                            </option>
+                            <option value="noroff.no">
+                              @noroff.no (Employee)
+                            </option>
+                          </select>
+                        </div>
+                      </div>
                       <span id="emailErrorMessage" class="error-message"></span>
                     </div>
                     <!--Password-->
                     <div class="form-group mb-4">
                       <label for="createPassword">Password</label>
                       <i
-                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
                         id="createPasswordSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark createIcon-error d-none"
+                        class="fa-solid fa-xmark iconForm-error d-none"
                         id="createPasswordError"
                       ></i>
                       <input
@@ -165,11 +180,11 @@
                         >Confirm password</label
                       >
                       <i
-                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        class="fa-solid fa-check iconForm-sucsess d-none"
                         id="createPasswordConfirmSucsess"
                       ></i>
                       <i
-                        class="fa-solid fa-xmark createIcon-error d-none"
+                        class="fa-solid fa-xmark iconForm-error d-none"
                         id="createPasswordConfirmError"
                       ></i>
                       <input

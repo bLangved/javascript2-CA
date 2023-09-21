@@ -10,6 +10,7 @@ const formErrorMessage = document.querySelector("#createUserErrorMessage");
 const firstName = document.querySelector("#createFirstName");
 const lastName = document.querySelector("#createLastName");
 const email = document.querySelector("#createEmail");
+const emailType = document.querySelector("#emailType");
 const password = document.querySelector("#createPassword");
 const passwordConfirm = document.querySelector("#createPasswordConfirm");
 const submitButton = document.querySelector("#submitButton");
@@ -79,10 +80,32 @@ function validateForm() {
         if(email.targeted){
             iconMailSucsess.classList.add("d-none");
             iconMailError.classList.remove("d-none");
-            emailErrorMessage.textContent = "Invalid Noroff email format! Should be stud.noroff.no or noroff.no.";
+            emailErrorMessage.textContent = "Should be firstname.lastname@stud.noroff.no / @noroff.no";
         }
         validationPassed = false;
     }
+
+    // Autogenerates an email for the user that matches the email pattern required by the API. 
+
+    function updateEmailBasedOnName() {
+        const first = firstName.value;
+        const last = lastName.value;
+        
+        // Get the selected email type
+        const selectedEmailType = emailType.value;
+        
+        // Combine the first name and last name, separated by a '.'
+        const combined = `${first}.${last}`;
+        
+        // Update the email field based on the selected email type
+        email.value = combined + "@" + selectedEmailType;
+    }
+
+    // updates the inputs in real time when typing in the textfields
+    firstName.addEventListener("input", updateEmailBasedOnName);
+    lastName.addEventListener("input", updateEmailBasedOnName);
+    emailType.addEventListener("change", updateEmailBasedOnName);
+
     // Password
     // Checks password input-value, to check so it does not contain spaces and required length
     if(checkLength(password.value, 8) === true) {
@@ -98,29 +121,27 @@ function validateForm() {
         }
         validationPassed = false;
     }
-// Confirm password
-// Checks if the confirmation password matches the original password
-if (passwordConfirm.value !== password.value) {
-    if (passwordConfirm.targeted) {
-        iconPasswordConfirmSucsess.classList.add("d-none");
-        iconPasswordConfirmError.classList.remove("d-none");
-        passwordConfirmErrorMessage.textContent = "Needs to match password above";
+    // Confirm password
+    // Checks if the confirmation password matches the original password
+    if (passwordConfirm.value !== password.value) {
+        if (passwordConfirm.targeted) {
+            iconPasswordConfirmSucsess.classList.add("d-none");
+            iconPasswordConfirmError.classList.remove("d-none");
+            passwordConfirmErrorMessage.textContent = "Needs to match password above";
+        }
+        validationPassed = false;
+    } else if (checkLength(passwordConfirm.value, 8) !== true) {
+        if (passwordConfirm.targeted) {
+            iconPasswordConfirmSucsess.classList.add("d-none");
+            iconPasswordConfirmError.classList.remove("d-none");
+        }
+        validationPassed = false;
+    } else {
+        iconPasswordConfirmSucsess.classList.remove("d-none");
+        iconPasswordConfirmError.classList.add("d-none");
+        passwordConfirmErrorMessage.textContent = "";
     }
-    validationPassed = false;
-} else if (checkLength(passwordConfirm.value, 8) !== true) {
-    if (passwordConfirm.targeted) {
-        iconPasswordConfirmSucsess.classList.add("d-none");
-        iconPasswordConfirmError.classList.remove("d-none");
-    }
-    validationPassed = false;
-} else {
-    iconPasswordConfirmSucsess.classList.remove("d-none");
-    iconPasswordConfirmError.classList.add("d-none");
-    passwordConfirmErrorMessage.textContent = "";
-}
-
     return validationPassed;
-
 }
 
 const submitReady = {

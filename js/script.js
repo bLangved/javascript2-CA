@@ -1,48 +1,6 @@
 const API_BASE_URL = "https://api.noroff.dev";
-const regiserEndpoint = "/api/v1/social/auth/register";
 const loginEndpoint = "/api/v1/social/auth/login";
 const getAllPostsEndpoint = "/api/v1/social/posts";
-
-// -- Registers user to database -- //
-/**
- * API call that registers the user
- * @param {string} url 
- * @param {any} userData 
- * ```js
- * registerUser(registerUrl, userToRegister)
- * ```
- */
-async function registerUser(url, userData){
-    console.log(url, userData);
-    try {
-        const postData = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData), 
-        };
-        const response = await fetch(url, postData);
-        console.log(response);
-        const json = await response.json();
-        console.log(json);
-    } catch (error) {
-        console.log(error)
-    }
-};
-
-const userToRegister = {
-    name: "bhl_test_1", // Required
-    email: "bhl_test_1.last@stud.noroff.no", // Required
-    password: "bhl123lan", // Required
-};
-
-
-const registerUrl = `${API_BASE_URL}${regiserEndpoint}`;
-// registerUser(registerUrl, userToRegister)
-
-
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- //
 
 
 // -- Login user to database -- //

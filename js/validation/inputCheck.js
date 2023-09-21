@@ -16,8 +16,9 @@ export function validateEmail(email) {
 }
 
 // Checks for valid noroff email pattern
+// needs to be a "." before the @, and it needs to be a @noroff.no or @stud.noroff.no
 export function validateNoroffEmail(email) {
-    const regex = /^.+@(stud\.noroff\.no|noroff\.no)$/;
+    const regex = /^[^@]+?\.[^@]+?@(stud\.noroff\.no|noroff\.no)$/;
     const patternMatches = regex.test(email);
     return patternMatches;
 }

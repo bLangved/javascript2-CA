@@ -18,6 +18,32 @@ a{
     border-color: $primary;
 }
 
+// - Forms - //
+.loginIcon-sucsess, .createIcon-sucsess{
+    color: green;
+}
+.loginIcon-error, .createIcon-error, .error-message{
+    color: red;
+}
+
+// - Headers - //
+
+.header-1, .header-2, .header-3 {
+    color: map-get($colors, light-primary);
+  }
+  .header-1{
+      font-size: 2rem;
+      padding: 2em 0;
+  }
+  .header-2 {
+      font-size: 1.75rem;
+      padding: 1.5em 0;
+  }
+  .header-3 {
+      font-size: 1.5rem;
+      padding: 1em 0;
+  }
+
 // Variable mixins //
 @mixin HoverObject {
     &:hover {
@@ -52,11 +78,47 @@ header{
 }
 
 .navbar-logo{
-    width: 6em;
+    width: 3em;
     height: 3em;
     &:hover{
         @include HoverObject;
     }
+}
+
+.searchbar_header{
+
+}
+
+.searchbar-btn_header{
+    width: 3em;
+    height: 3em;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    &:hover{
+        @include HoverObject;
+    }
+}
+
+.searchbar_header-input-container{
+    position: fixed;
+    top: 4em;
+    right: 0;
+    width: 100%;
+    padding: 1em;
+    border-radius: 0 0 1em 1em;
+    background-color: map-get($colors , light-primary );
+
+    @media (min-width: 768px) {
+        position: static;
+        width: auto;
+        padding: 0;
+        background-color: transparent;
+      }
+}
+
+.searchbar-input_header{
+
 }
 
 .nav-toggler_navbar{
@@ -73,33 +135,42 @@ header{
 }
 
 .custom-nav_header{
-    position: absolute;
+    position: fixed;
     top: 4em;
-    right: 1em;
-    background-color: white;
+    right: 0;
+    width: 100%;
     padding: 1em;
-    border-radius: 1em;
-    width: 20em;
+    border-radius: 0 0 1em 1em;
+    background-color: white;
+    
+    @media (min-width: 576px) {
+        width: 20em;
+        right: 1em;
+        border-radius: 1em;
+    }
 
     & a{
         color: map-get($colors , dark-primary );
     }
 }
 
-.nav-item-profile{
-    @include borderRadius-sm;
+.nav-item_header{
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    & a{
+        @include borderRadius-sm;
+        color: map-get($colors, text-dark);
+        font-size: 1.25rem;
+    }
     & img{
         width: 3em;
         height: 3em;
         border-radius: 50%;
     }
-}
-
-.header-link{
-    @include borderRadius-sm;
-    color: map-get($colors, text-light);
-    font-size: 1.25rem;
-    padding: 0.5em;
+    & i{
+        padding-right: 0.5em;
+    }
     &:hover{
         @include hoverText;
     }
@@ -115,12 +186,17 @@ main{
 // --- FOOTER --- //
 footer{
     background-color: map-get($colors, dark-secondary);
-    height: 7.5em;
     min-width: 100%;
 } 
 .footer-items{
     color: map-get($colors, text-light);
-    height: 100%;
+}
+
+.footer-items a {
+    
+}
+.footer-items a:hover {
+    text-decoration: underline;
 }
 
 

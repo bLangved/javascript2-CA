@@ -32,7 +32,7 @@
           >
             <div class="text-center">
               <img
-                src="/IMAGES/auth-logo.png"
+                src="/IMAGES/auth-logo-new.png"
                 alt="Logo"
                 class="auth-logo mb-3"
               />
@@ -42,27 +42,48 @@
             </div>
           </div>
 
+          <!-- Login section -->
           <div class="col-12 auth-form-container mx-auto">
             <div class="row d-flex justify-content-center">
               <div class="card">
                 <div class="card-body">
-                  <form action="./feed/index.html" method="get">
-                    <div class="form-group">
-                      <label for="email">Email</label>
+                  <form
+                    class="login-form"
+                    action="./feed/index.html"
+                    method="get"
+                  >
+                    <div class="form-group mb-3">
+                      <label for="loginEmail">Email</label>
+                      <i
+                        class="fa-solid fa-check loginIcon-sucsess d-none"
+                        id="loginEmailSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark loginIcon-error d-none"
+                        id="loginEmailError"
+                      ></i>
                       <input
                         type="email"
                         class="form-control"
-                        id="email"
+                        id="loginEmail"
                         name="email"
                         required
                       />
                     </div>
-                    <div class="form-group mt-3">
-                      <label for="password">Password</label>
+                    <div class="form-group mb-4">
+                      <label for="loginPassword">Password</label>
+                      <i
+                        class="fa-solid fa-check loginIcon-sucsess d-none"
+                        id="loginPasswordSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark loginIcon-error d-none"
+                        id="loginPasswordError"
+                      ></i>
                       <input
                         type="password"
                         class="form-control"
-                        id="password"
+                        id="loginPassword"
                         name="password"
                         minlength="8"
                         required
@@ -70,7 +91,8 @@
                     </div>
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block mt-3 col-12"
+                      class="btn btn-primary btn-block col-12"
+                      id="loginButton"
                     >
                       Login
                     </button>
@@ -78,10 +100,7 @@
                   <div class="text-center mt-4">
                     <p>
                       Don't have an account?
-                      <a
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#registerModal"
+                      <a href="registerUser.html"
                         ><strong>Register here</strong></a
                       >.
                     </p>
@@ -92,64 +111,30 @@
           </div>
         </div>
       </div>
-
-      <!-- Register Modal -->
-      <div
-        class="modal fade"
-        id="registerModal"
-        tabindex="-1"
-        aria-labelledby="registerModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="registerModalLabel">Register</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form action="/profile" method="POST">
-                <div class="form-group">
-                  <label for="registerEmail">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="registerEmail"
-                    name="registerEmail"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="registerPassword">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="registerPassword"
-                    name="registerPassword"
-                    minlength="8"
-                    required
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block mt-4">
-                  Register
-                </button>
-              </form>
-            </div>
-          </div>
+    </main>
+    <footer class="container ps-4 ps-md-0">
+      <div class="row align-items-center footer-items">
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Company</span>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Legal</span>
+          <a href="#terms">Terms of Service</a>
+          <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Support</span>
+          <a href="#faq">FAQ</a>
+          <a href="#help">Help Center</a>
+        </div>
+        <div class="col-12 text-center mt-5 mb-5">
+          <span>© Copyright Chatably</span>
         </div>
       </div>
-    </main>
-    <footer>
-      <div
-        class="d-flex align-items-center justify-content-center footer-items"
-      >
-        <span class="text-center">Copyright Chatably</span>
-      </div>
     </footer>
+    <script type="module" src="js/forms/mainLogin.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

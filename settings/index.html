@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatably | Account</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- SCSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+    <!-- Placeholder Favicon -->
+    <link
+      rel="shortcut icon"
+      href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=16"
+      type="image/x-icon"
+    />
+    <!-- Fontawesome icons -->
+    <script
+      src="https://kit.fontawesome.com/4652493b4c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="container-fluid">
+      <div
+        class="header-content d-flex align-items-center justify-content-between"
+      >
+        <!-- Header col 1 -->
+        <div class="">
+          <a class="navbar-brand" href="index.html"
+            ><img class="navbar-logo" src="../images/auth-logo.png" alt=""
+          /></a>
+        </div>
+        <!-- Header col 2 -->
+        <!-- Searchbar -->
+        <div class="">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Chatably"
+          />
+        </div>
+        <!-- Header col 3 -->
+        <nav class="navbar navbar-expand-lg">
+          <button
+            class="nav-toggler_navbar d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <img src="../images/people_thumbnails/johnwick.jpg" />
+          </button>
+          <div
+            class="collapse navbar-collapse custom-nav_header shadow-lg"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item nav-item_header">
+                <a class="nav-link" href="../profile/index.html">
+                  <img
+                    src="../images/people_thumbnails/johnwick.jpg"
+                    class="me-2"
+                  />
+                  <span>My profile</span>
+                </a>
+              </li>
+              <li class="nav-item nav-item_header active">
+                <a class="nav-link" href="../feed/index.html">
+                  <i class="fa-solid fa-rss"></i>
+                  <span>Feed</span>
+                </a>
+              </li>
+              <li class="nav-item nav-item_header">
+                <a class="nav-link" href="../account/index.html">
+                  <i class="fa-solid fa-user"></i>
+                  <span>My account</span>
+                </a>
+              </li>
+              <li class="nav-item nav-item_header">
+                <a class="nav-link" href="../settings/index.html">
+                  <i class="fa-solid fa-gear"></i>
+                  <span>Settings</span>
+                </a>
+              </li>
+              <li class="nav-item nav-item_header">
+                <a class="nav-link" href="../index.html">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <span>Log out</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main></main>
+    <footer class="container ps-4 ps-md-0">
+      <div class="row align-items-center footer-items">
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Company</span>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Legal</span>
+          <a href="#terms">Terms of Service</a>
+          <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Support</span>
+          <a href="#faq">FAQ</a>
+          <a href="#help">Help Center</a>
+        </div>
+        <div class="col-12 text-center mt-5 mb-5">
+          <span>© Copyright Chatably</span>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

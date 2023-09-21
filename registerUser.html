@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatably | Register account</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- SCSS -->
+    <link rel="stylesheet" href="dist/css/styles.css" />
+    <!-- Placeholder Favicon -->
+    <link
+      rel="shortcut icon"
+      href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=16"
+      type="image/x-icon"
+    />
+    <!-- Fontawesome icons -->
+    <script
+      src="https://kit.fontawesome.com/4652493b4c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="auth-main d-flex align-items-center justify-content-center">
+      <div class="container px-4">
+        <div class="row">
+          <div
+            class="auth-logo-container col-12 d-flex align-items-center justify-content-center mx-auto"
+          >
+            <div class="text-center">
+              <img
+                src="/IMAGES/auth-logo-new.png"
+                alt="Logo"
+                class="auth-logo mb-3"
+              />
+              <p>
+                Create an account at Chatably. <br />
+                Fill in the form below.
+              </p>
+            </div>
+          </div>
+
+          <!-- create section -->
+          <div class="col-12 auth-form-container mx-auto">
+            <div class="row d-flex justify-content-center">
+              <div class="card">
+                <div class="card-body">
+                  <section class="text-center">
+                    <div id="createUserSucsessful" class="d-none">
+                      <span>Account creation was sucsessful!</span><br />
+                      <a href="index.html"
+                        ><strong>Click here to go back to login form</strong></a
+                      >
+                    </div>
+                    <div id="createUserError" class="d-none">
+                      <span>Account creation was not sucsessful!</span><br />
+                      <a href="registerUser.html"
+                        ><strong
+                          >Click here to refresh site, and try again</strong
+                        ></a
+                      ><br />
+                      <span>or</span><br />
+                      <a href="index.html"
+                        ><strong>Click here to go back to login form</strong></a
+                      >
+                    </div>
+                  </section>
+                  <form class="create-form" id="createForm" method="POST">
+                    <!--First name-->
+                    <div class="form-group mb-3">
+                      <label for="createFirstName">First name</label>
+                      <i
+                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        id="createFirstNameSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark createIcon-error d-none"
+                        id="createFirstNameError"
+                      ></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createFirstName"
+                        name="firstName"
+                        required
+                      />
+                      <span
+                        id="firstNameErrorMessage"
+                        class="error-message"
+                      ></span>
+                    </div>
+                    <!--Last name-->
+                    <div class="form-group mb-3">
+                      <label for="createLastName">Last name</label>
+                      <i
+                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        id="createLastNameSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark createIcon-error d-none"
+                        id="createLastNameError"
+                      ></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createLastName"
+                        name="lastName"
+                        required
+                      />
+                      <span
+                        id="lastNameErrorMessage"
+                        class="error-message"
+                      ></span>
+                    </div>
+                    <!--Email-->
+                    <div class="form-group mb-3">
+                      <label for="createEmail">Email</label>
+                      <i
+                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        id="createEmailSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark createIcon-error d-none"
+                        id="createEmailError"
+                      ></i>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="createEmail"
+                        name="createEmail"
+                        required
+                      />
+                      <span id="emailErrorMessage" class="error-message"></span>
+                    </div>
+                    <!--Password-->
+                    <div class="form-group mb-4">
+                      <label for="createPassword">Password</label>
+                      <i
+                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        id="createPasswordSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark createIcon-error d-none"
+                        id="createPasswordError"
+                      ></i>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="createPassword"
+                        name="createPassword"
+                        minlength="8"
+                        required
+                      />
+                      <span
+                        id="passwordErrorMessage"
+                        class="error-message"
+                      ></span>
+                    </div>
+                    <!--Confirm password-->
+                    <div class="form-group mb-4">
+                      <label for="createPasswordConfirm"
+                        >Confirm password</label
+                      >
+                      <i
+                        class="fa-solid fa-check createIcon-sucsess d-none"
+                        id="createPasswordConfirmSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark createIcon-error d-none"
+                        id="createPasswordConfirmError"
+                      ></i>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="createPasswordConfirm"
+                        name="createPasswordConfirm"
+                        minlength="8"
+                        required
+                      />
+                      <span
+                        id="passwordConfirmErrorMessage"
+                        class="error-message"
+                      ></span>
+                    </div>
+                    <div
+                      id="createUserErrorMessage"
+                      class="error-message mb-2 mt-2 d-none"
+                    >
+                      The form is not filled out correctly
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block col-12"
+                      id="submitButton"
+                    >
+                      Register account
+                    </button>
+                  </form>
+                  <div class="text-center mt-4">
+                    <p>
+                      Allready have an account?
+                      <a href="index.html"><strong>Go back</strong></a
+                      >.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container ps-4 ps-md-0">
+      <div class="row align-items-center footer-items">
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Company</span>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Legal</span>
+          <a href="#terms">Terms of Service</a>
+          <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Support</span>
+          <a href="#faq">FAQ</a>
+          <a href="#help">Help Center</a>
+        </div>
+        <div class="col-12 text-center mt-5 mb-5">
+          <span>© Copyright Chatably</span>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="js/forms/registerUserForm.js"></script>
+    <script type="module" src="js/autentication/createUser.js"></script>
+  </body>
+</html>

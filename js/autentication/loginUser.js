@@ -1,6 +1,5 @@
-// const API_BASE_URL = "https://api.noroff.dev";
-// const loginEndpoint = "/api/v1/social/auth/login";
-// const getAllPostsEndpoint = "/api/v1/social/posts";
+const API_BASE_URL = "https://api.noroff.dev";
+const getAllPostsEndpoint = "/api/v1/social/posts";
 
 const loginSucsessfulContainer = document.querySelector("#loginUserSucsessful");
 const loginErrorContainer = document.querySelector("#loginUserError");
@@ -33,23 +32,20 @@ export async function loginUser(url, userData){
         const accessToken = json.accessToken;
         localStorage.setItem("accessToken", accessToken);
         console.log(accessToken);
+        AuthorizeToken(`${API_BASE_URL}${getAllPostsEndpoint}`);
     } catch (error) {
         console.log(error);
     }
 };
 
 
-// const loginUrl = `${API_BASE_URL}${loginEndpoint}`;
-// loginUser(loginUrl, userToLogin);
+// -- Autorize token and login -- //
 
-
-// -- Request with token -- //
-
-async function getWithToken(url){
+export async function AuthorizeToken(url){
     try {
-        // console.log(url);
+        console.log(url);
         const token = localStorage.getItem("accessToken");
-        // console.log(token);
+        console.log(token);
         const fetchOptions = {
             method: "GET",
             headers: {
@@ -58,15 +54,20 @@ async function getWithToken(url){
             },
         }
         const respons = await fetch(url, fetchOptions);
-        // console.log(respons);
+        console.log(respons);
         const json = await respons.json();
-        // console.log(json);
+        console.log(json);
+        if (respons.ok) {
+            // This is ONLY for testing purpose atm. I want to check the console before it takes me further. 
+            setTimeout(() => {
+                window.location.href = "../feed/index.html";
+            }, 3000)
+            
+        } else {
+            // Handle the unsuccessful response here (e.g., show an error message to the user)
+            console.error("Token validation failed.");
+        }
     } catch (error) {
         console.log(error)
     }
 }
-
-
-
-// const postUrl = `${API_BASE_URL}${getAllPostsEndpoint}`;
-// getWithToken(postUrl);

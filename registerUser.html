@@ -43,6 +43,12 @@
             </div>
           </div>
 
+          <!-- LOADING ANIMATION-->
+          <div class="loadingContainer d-flex flex-column pt-3 pb-3 d-none">
+            <div class="loadingText mx-auto pb-3">Loading</div>
+            <div class="loadingAnimation mx-auto"></div>
+          </div>
+
           <!-- create user section -->
           <div class="col-12 auth-form-container mx-auto">
             <div class="row d-flex justify-content-center">
@@ -86,6 +92,7 @@
                         class="form-control"
                         id="createFirstName"
                         name="firstName"
+                        autocomplete="off"
                         required
                       />
                       <span
@@ -109,6 +116,7 @@
                         class="form-control"
                         id="createLastName"
                         name="lastName"
+                        autocomplete="off"
                         required
                       />
                       <span
@@ -134,6 +142,7 @@
                             class="form-control col-6"
                             id="createEmail"
                             name="createEmail"
+                            autocomplete="off"
                             required
                           />
                         </div>
@@ -166,6 +175,7 @@
                         class="form-control"
                         id="createPassword"
                         name="createPassword"
+                        autocomplete="off"
                         minlength="8"
                         required
                       />
@@ -192,6 +202,7 @@
                         class="form-control"
                         id="createPasswordConfirm"
                         name="createPasswordConfirm"
+                        autocomplete="off"
                         minlength="8"
                         required
                       />
@@ -250,6 +261,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/components/loadingAnimation.js"></script>
     <script type="module" src="js/forms/registerUserForm.js"></script>
     <script type="module" src="js/autentication/createUser.js"></script>
   </body>

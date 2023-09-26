@@ -1,3 +1,5 @@
+import { hideLoadingAnimation } from "../components/loadingAnimation.js";
+
 const API_BASE_URL = "https://api.noroff.dev";
 const getAllPostsEndpoint = "/api/v1/social/posts";
 
@@ -59,7 +61,9 @@ export async function AuthorizeToken(url){
         console.log(json);
         if (respons.ok) {
             // This is ONLY for testing purpose atm. I want to check the console before it takes me further. 
+            
             setTimeout(() => {
+                hideLoadingAnimation();
                 window.location.href = "../feed/index.html";
             }, 3000)
             

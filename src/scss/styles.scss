@@ -26,6 +26,34 @@ a{
     color: red;
 }
 
+/* -- Loading animation -- */
+
+  .loadingText {
+    color: white;
+  }
+  
+  .loadingAnimation {
+    width: 2em;
+    height: 2em;
+    // margin: 0.5em auto auto auto;
+    border: 10px solid lightblue;
+    border-top-color: blue;
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+
+/* Used by loading animations */
+@keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
 // - Headers - //
 
 .header-1, .header-2, .header-3 {

@@ -1,9 +1,14 @@
 import { checkLength, validateNoroffEmail} from "../validation/inputCheck.js";
 import { loginUser } from "../autentication/loginUser.js";
+import { showLoadingAnimation } from "../components/loadingAnimation.js";
+
 
 const API_BASE_URL = "https://api.noroff.dev";
 const loginEndpoint = "/api/v1/social/auth/login";
 
+const textLogin = document.querySelector("#textLogin");
+
+const formContainer = document.querySelector("#formContainer")
 const form = document.querySelector("#loginForm");
 const formErrorMessage = document.querySelector("#loginUserErrorMessage");
 
@@ -18,6 +23,7 @@ const iconMailSucsess = document.querySelector("#emailLoginSucsess");
 const iconMailError = document.querySelector("#emailLoginError");
 const iconPasswordSucsess = document.querySelector("#passwordLoginSucsess");
 const iconPasswordError = document.querySelector("#passwordLoginError");
+
 
 const requiredFields = [email, password];
 
@@ -96,7 +102,9 @@ submitButton.addEventListener("click", async (e) => {
             email: email.value, 
             password: password.value, 
         };
-        form.classList.add("d-none");
+        textLogin.textContent = "Logging inn to Chatably"
+        formContainer.classList.add("d-none");
+        showLoadingAnimation();
         const loginUrl = `${API_BASE_URL}${loginEndpoint}`;
         loginUser(loginUrl, userToLogin);
     }

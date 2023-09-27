@@ -1,3 +1,5 @@
+import { deleteSelectedPost } from "./deletePost.js";
+
 const cardsContainer = document.querySelector(".card-container")
 
 
@@ -38,6 +40,37 @@ export function createCard(objectData){
                     topText.append(postDate);
 
             topSection.append(topText); 
+
+                // Post options (delete post option)
+                const postSettingsDropdown = document.createElement("div");
+                postSettingsDropdown.classList.add("dropdown", "card-post-options");
+
+                    const postSettingsButton = document.createElement("button");
+                    postSettingsButton.classList.add("btn", "btn-primary", "btn-sm");
+                    postSettingsButton.id = "dropdownMenuButton";
+                    postSettingsButton.setAttribute("data-bs-toggle", "dropdown");
+                    postSettingsButton.setAttribute("aria-expanded", "false");
+                    postSettingsButton.innerText = "..."; // Three dots
+
+                    const postSettingsMenu = document.createElement("div");
+                    postSettingsMenu.classList.add("dropdown-menu");
+                    postSettingsMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
+
+                    const deleteOption = document.createElement("a");
+                    deleteOption.classList.add("dropdown-item");
+                    deleteOption.href = "#";
+                    deleteOption.innerText = "Delete Post";
+                    deleteOption.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        deleteSelectedPost(card.dataset.id)
+                    });
+
+                postSettingsMenu.append(deleteOption);
+                postSettingsDropdown.append(postSettingsButton, postSettingsMenu);
+                topSection.append(postSettingsDropdown);
+
+                    
+
         cardBody.append(topSection);
 
             // Body with the content of the post

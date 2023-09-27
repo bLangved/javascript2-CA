@@ -12,8 +12,12 @@ export function deleteSelectedPost(postId){
                 "Authorization": `Bearer ${AuthorizationToken}`
             },
           }).then((response) => {
-            window.location.reload()
             console.log(response);
+            if (response.ok) {
+                window.location.reload(); // reload the page
+            } else {
+                throw new Error(`Failed to delete post: ${response.statusText}`);
+            }
           });
     } catch (error) {
         console.log(error)

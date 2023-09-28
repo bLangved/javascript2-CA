@@ -1,4 +1,5 @@
 import { deleteSelectedPost } from "./deletePost.js";
+import { editSelectedPost } from "./editPost.js";
 
 const cardsContainer = document.querySelector(".card-container")
 
@@ -64,8 +65,18 @@ export function createCard(objectData){
                         e.preventDefault();
                         deleteSelectedPost(card.dataset.id)
                     });
-
                 postSettingsMenu.append(deleteOption);
+
+                    const editOption = document.createElement("a");
+                    editOption.classList.add("dropdown-item");
+                    editOption.href = "#";
+                    editOption.innerText = "Edit Post";
+                    editOption.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        editSelectedPost(card.dataset.id)
+                    });
+                postSettingsMenu.append(editOption);
+
                 postSettingsDropdown.append(postSettingsButton, postSettingsMenu);
                 topSection.append(postSettingsDropdown);
 
@@ -174,6 +185,7 @@ export function createCard(objectData){
 
     
     card.append(cardBody);
-    cardsContainer.append(card);
+    // prepend the card, so it gets displayed at the top of the feed on the initial publish
+    cardsContainer.prepend(card);
 };
 

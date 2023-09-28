@@ -32,7 +32,6 @@ postSubmit.addEventListener("click", async (event) => {
             body: postBody.value  
     }
     const AuthorizationToken = localStorage.getItem("accessToken");
-    console.log(AuthorizationToken);
     await createPost(createPostUrl, postContent, AuthorizationToken)
     // Clears input fields, close the form and change button text
     postTitle.value = "";
@@ -61,9 +60,7 @@ async function createPost(url, postContent, AuthorizationToken){
             body: JSON.stringify(postContent), 
         };
         const response = await fetch(url, postData);
-        // console.log(response);
         const json = await response.json();
-        console.log(json);
         createCard(json);
     } catch (error) {
         console.log(error)

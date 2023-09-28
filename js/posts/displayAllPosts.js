@@ -22,7 +22,7 @@ function setupUserEnvironment() {
 function displayUserPosts() {
     const accessToken = localStorage.getItem("accessToken");
 
-    // Assuming you have a backend API endpoint to fetch posts by accessToken:
+    // fetching posts by accessToken:
     fetch(createPostUrl, {
         method: "GET",
         headers: {
@@ -32,8 +32,9 @@ function displayUserPosts() {
     })
     .then(response => response.json())
     .then(data => {
-        // Assuming "data" is an array of post objects:
-        data.forEach(post => {
+        // Data is an array of posts. The content of the arrays gets reversed, so newest entries gets displayed first. 
+        const reversedData = data.reverse();
+        reversedData.forEach(post => {
             createCard(post); // Your function to display each post
         });
     })

@@ -223,9 +223,42 @@
               </form>
             </div>
 
+            <div class="col-12 mb-2">
+              <div class="row justify-content-between">
+                <h2 class="col-auto">Recent posts</h2>
+                <!--Filter posts / Dropdown Menu-->
+                <div class="col-auto dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="filterDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Filter Posts
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                    <li>
+                      <a class="dropdown-item" href="?filter=newest">Newest</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="?filter=oldest">Oldest</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="?filter=most_comments"
+                        >Most comments</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="?filter=most_reactions"
+                        >Most reactions</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div class="feed-posts-section">
-              <h2>Recent posts</h2>
-
               <!-- All posts in feed -->
               <div class="row">
                 <div class="col-12 mb-3 card-container"></div>

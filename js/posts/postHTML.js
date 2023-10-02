@@ -1,5 +1,6 @@
 import { deleteSelectedPost } from "./deletePost.js";
 import { editSelectedPost } from "./editPost.js";
+import { createNewComment } from "./createComment.js";
 
 const cardsContainer = document.querySelector(".card-container")
 
@@ -116,7 +117,15 @@ export function createCard(objectData){
                         likeIcon.classList.add("fa-solid", "fa-thumbs-up", "pe-1");
                         const likeText = document.createElement("span");
                         likeText.innerText = "Like";
-                    interactionElement1.append(likeIcon, likeText);
+                        interactionElement1.append(likeIcon, likeText);
+                        interactionElement1.addEventListener("click", () => {
+                            if(!interactionElement1.style.color || interactionElement1.style.color === "initial"){
+                                interactionElement1.style.color = "#216db3";
+                            }
+                            else{
+                                interactionElement1.style.color = "initial";
+                            }
+                        });
 
                     const interactionElement2 = document.createElement("div");
                     interactionElement2.classList.add("col-4", "text-center");
@@ -142,48 +151,36 @@ export function createCard(objectData){
         cardBody.append(hr2);
 
 
-            // --- Comments on post
+                // --- Comments on post
             const commentSectionContainer = document.createElement("div");
-
-                const commentContainer = document.createElement("div");
-                commentContainer.classList.add("card-comment-section", "d-flex", "align-items-center");
-
-                    // User image - comment
-                    const commentUserImg = document.createElement("img");
-                    commentUserImg.classList.add("me-3");
-                    commentUserImg.src = "/IMAGES/people_thumbnails/person1.jpeg";
-                    commentUserImg.alt = "Your profile-image";
-                commentContainer.append(commentUserImg);
-
-                    const commentSubContainer = document.createElement("div");
-                    commentSubContainer.classList.add("card-comment");
-
-                        const commentName = document.createElement("span");
-                        commentName.innerText = "This is a placeholder for the user"
-                    commentSubContainer.append(commentName);    
-
-                        const commentParagraph = document.createElement("p");
-                        commentParagraph.classList.add("p-2");
-                        commentParagraph.innerText = "This is a placeholder for the comment";
-                    commentSubContainer.append(commentParagraph);    
-
-                commentContainer.append(commentSubContainer);
-            commentSectionContainer.append(commentContainer);
-        cardBody.append(commentSectionContainer);
+            cardBody.append(commentSectionContainer);
 
             // --- Write a comment on post
             const writeCommentContainer = document.createElement("div");
             writeCommentContainer.classList.add("col", "mt-3");
 
-                const writeCommentInput = document.createElement("input");
-                writeCommentInput.classList.add("form-control");
-                writeCommentInput.type = "text";
-                writeCommentInput.placeholder = "Write a comment...";
+            const writeCommentInput = document.createElement("input");
+            writeCommentInput.classList.add("form-control");
+            writeCommentInput.type = "text";
+            writeCommentInput.placeholder = "Write a comment...";
 
-            writeCommentContainer.append(writeCommentInput);
+            writeCommentInput.addEventListener("keyup", async function(event) {
+                const AuthorizationToken = localStorage.getItem("accessToken");
+                if (event.key === "Enter" && this.value.trim() !== "") {
+                    try {
+                        const newComment = await createNewComment(card.dataset.id, this.value.trim(), AuthorizationToken);
+                        commentSectionContainer.append(newComment);
+                        this.value = "";
+                    } catch (error) {
+                        console.error("Failed to post comment:", error);
+                        // handle the error, maybe display a message to the user
+                    }
+                }
+            });
+        writeCommentContainer.append(writeCommentInput);
         cardBody.append(writeCommentContainer);
 
-    
+
     card.append(cardBody);
     // prepend the card, so it gets displayed at the top of the feed on the initial publish
     cardsContainer.prepend(card);

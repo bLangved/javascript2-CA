@@ -1,6 +1,7 @@
 import { createCard } from "./postHTML.js";
 
 const API_BASE_URL = "https://api.noroff.dev/api/v1";
+
 const allPostsEndpoint = "/social/profiles/bjornar_heian/posts";
 const createPostUrl = `${API_BASE_URL}${allPostsEndpoint}`;
 

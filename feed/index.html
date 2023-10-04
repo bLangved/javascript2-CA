@@ -239,21 +239,37 @@
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="filterDropdown">
                     <li>
-                      <a class="dropdown-item" href="?filter=newest">Newest</a>
+                      <a
+                        class="dropdown-item filterPosts-menu"
+                        data-filter="newest"
+                        href="#"
+                        >Newest</a
+                      >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="?filter=oldest">Oldest</a>
+                      <a
+                        class="dropdown-item filterPosts-menu"
+                        data-filter="oldest"
+                        href="#"
+                        >Oldest</a
+                      >
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="?filter=most_comments"
+                    <!-- <li>
+                      <a
+                        class="dropdown-item filterPosts-menu"
+                        data-filter="most_comments"
+                        href="#"
                         >Most comments</a
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="?filter=most_reactions"
+                      <a
+                        class="dropdown-item filterPosts-menu"
+                        data-filter="most_reactions"
+                        href="#"
                         >Most reactions</a
                       >
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -465,5 +481,6 @@
     <script type="module" src="../js/posts/displayAllPosts.js"></script>
     <script type="module" src="../js/posts/createPost.js"></script>
     <script type="module" src="../js/posts/editPost.js"></script>
+    <!-- <script type="module" src="../js/posts/filterPosts.js"></script> -->
   </body>
 </html>

@@ -1,6 +1,7 @@
 import { deleteSelectedPost } from "./deletePost.js";
 import { editSelectedPost } from "./editPost.js";
 import { createNewComment } from "./createComment.js";
+import { formatDate } from "../formating/formateDate.js";
 
 const cardsContainer = document.querySelector(".card-container")
 
@@ -37,8 +38,10 @@ export function createCard(objectData){
                     userName.innerText = "Your name";
                     topText.append(userName);
 
+                    // sends the date retrieved from the json (creation time of post) into formateDate() for better date-formatting. 
                     const postDate = document.createElement("span");
-                    postDate.innerText = objectData.created;
+                    const formattedPostDate = new Date(objectData.created);
+                    postDate.innerText = formatDate(formattedPostDate);
                     topText.append(postDate);
 
             topSection.append(topText); 
@@ -62,10 +65,15 @@ export function createCard(objectData){
                     deleteOption.classList.add("dropdown-item");
                     deleteOption.href = "#";
                     deleteOption.innerText = "Delete Post";
+                    // Eventlistener for deleting post, but the user needs to confirm their action.
                     deleteOption.addEventListener("click", function(e) {
                         e.preventDefault();
-                        deleteSelectedPost(card.dataset.id)
+                        const userConfirmation = confirm("Are you sure you want to delete this post?");
+                        if (userConfirmation) {
+                            deleteSelectedPost(card.dataset.id);
+                        }
                     });
+                    
                 postSettingsMenu.append(deleteOption);
 
                     const editOption = document.createElement("a");

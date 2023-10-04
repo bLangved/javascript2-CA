@@ -1,4 +1,5 @@
 import { createCard } from "./postHTML.js";
+import { filterPosts } from "./filterPosts.js";
 
 const API_BASE_URL = "https://api.noroff.dev/api/v1";
 
@@ -19,8 +20,18 @@ function setupUserEnvironment() {
     displayUserPosts();
 }
 
+const filterItems = document.querySelectorAll(".filterPosts-menu");
+
+filterItems.forEach(item => {
+    item.addEventListener("click", function(e) {
+        e.preventDefault();
+        const filterType = e.target.getAttribute("data-filter");
+        displayUserPosts(filterType);
+    });
+});
+
 // Fetch the posts associated with the current user and display them:
-function displayUserPosts() {
+function displayUserPosts(filterType) {
     const accessToken = localStorage.getItem("accessToken");
 
     // fetching posts by accessToken:
@@ -33,10 +44,14 @@ function displayUserPosts() {
     })
     .then(response => response.json())
     .then(data => {
-        // Data is an array of posts. The content of the arrays gets reversed, so newest entries gets displayed first. 
-        const reversedData = data.reverse();
-        reversedData.forEach(post => {
-            createCard(post); // Your function to display each post
+
+        const cardsContainer = document.querySelector(".card-container");
+        // Clear existing posts each time the page gets refreshed, so there aren't any duplicates. 
+        cardsContainer.innerHTML = "";
+         
+        const filteredData = filterPosts(data, filterType); 
+        filteredData.forEach(post => {
+            createCard(post);
         });
     })
     .catch(error => {

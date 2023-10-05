@@ -32,70 +32,12 @@
           <!-- 1. / left container-->
           <div
             class="container col-lg-3 d-none d-lg-block first-container quick-link-section"
-          >
-            <div class="ql-theme mb-3 mt-3">
-              <div class="col-3 text-center">
-                <i class="fa-solid fa-store"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Markedplace</a>
-              </div>
-            </div>
-            <div class="ql-theme mb-3">
-              <div class="col-3 text-center">
-                <i class="fa-solid fa-people-group"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Groups</a>
-              </div>
-            </div>
-            <div class="ql-theme mb-3">
-              <div class="col-3 text-center">
-                <i class="fa-regular fa-calendar-days"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Events</a>
-              </div>
-            </div>
-            <div class="ql-theme mb-3">
-              <div class="col-3 text-center">
-                <i class="fa-solid fa-file"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Pages</a>
-              </div>
-            </div>
-            <div class="ql-theme mb-3">
-              <div class="col-3 text-center">
-                <i class="fa-solid fa-floppy-disk"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Saved</a>
-              </div>
-            </div>
-            <div class="ql-theme mb-3">
-              <div class="col-3 text-center">
-                <i class="fa-solid fa-image"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Photos</a>
-              </div>
-            </div>
-            <div class="ql-theme mb-3">
-              <div class="col-3 text-center">
-                <i class="fa-solid fa-file"></i>
-              </div>
-              <div class="col-9">
-                <a href="#">Files</a>
-              </div>
-            </div>
-          </div>
-
+            id="firstContainer"
+          ></div>
           <!-- 2. / mid container-->
           <div
             class="container col-md-9 col-lg-6 second-container feed-section"
           >
-            <!-- Create New Post -->
             <div>
               <button class="col-12 btn btn-primary create-post-btn mt-3 mb-3">
                 Create new post
@@ -139,7 +81,6 @@
             <div class="col-12 mb-2">
               <div class="row justify-content-between">
                 <h2 class="col-auto">Recent posts</h2>
-                <!--Filter posts / Dropdown Menu-->
                 <div class="col-auto dropdown">
                   <button
                     class="btn btn-primary dropdown-toggle"
@@ -167,231 +108,31 @@
                         >Oldest</a
                       >
                     </li>
-                    <!-- <li>
-                      <a
-                        class="dropdown-item filterPosts-menu"
-                        data-filter="most_comments"
-                        href="#"
-                        >Most comments</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item filterPosts-menu"
-                        data-filter="most_reactions"
-                        href="#"
-                        >Most reactions</a
-                      >
-                    </li> -->
                   </ul>
                 </div>
               </div>
             </div>
             <div class="feed-posts-section">
-              <!-- All posts in feed -->
               <div class="row">
                 <div class="col-12 mb-3 card-container"></div>
               </div>
             </div>
           </div>
-
           <!-- 3. / right container-->
-          <div class="container col-md-3 d-none d-md-block third-container">
-            <!--Friends section-->
-            <div>
-              <div class="mb-3 mt-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search friends"
-                />
-              </div>
-              <div class="friends-section mt-3">
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person1.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">James Forden</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person2.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Anders Haug</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person3.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Lisa Lilter</a>
-                  <i class="ms-auto fa-solid fa-globe status_offline"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person4.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Hans Hansen</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person5.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Henrikke Reklestad</a>
-                  <i class="ms-auto fa-solid fa-globe status_offline"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person6.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Michaela Johnson</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person7.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Gunhilda Fryer</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person8.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Marion Fencer</a>
-                  <i class="ms-auto fa-solid fa-globe status_offline"></i>
-                </div>
-                <div
-                  class="col-md-12 friend-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person9.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">John Frekler</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <!-- Group conversations - section-->
-            <div>
-              <div class="group-conversation-title">Group conversations</div>
-              <div class="groups-section mt-3">
-                <div
-                  class="col-md-12 group-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person1.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person3.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Groupname 1</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 group-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person2.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person9.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Groupname 2</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-                <div
-                  class="col-md-12 group-list pb-3 d-flex align-items-center"
-                >
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person5.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <img
-                    class="me-2"
-                    src="/IMAGES/people_thumbnails/person6.jpeg"
-                    alt="friend-profilepicture"
-                  />
-                  <a href="#">Groupname 3</a>
-                  <i class="ms-auto fa-solid fa-globe status_online"></i>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div
+            class="container col-md-3 d-none d-md-block third-container"
+            id="thirdContainer"
+          ></div>
         </div>
       </div>
     </main>
-    <footer class="container ps-4 ps-md-0">
-      <div class="row align-items-center footer-items">
-        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
-          <span class="header-3">Company</span>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
-          <span class="header-3">Legal</span>
-          <a href="#terms">Terms of Service</a>
-          <a href="#privacy">Privacy Policy</a>
-        </div>
-        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
-          <span class="header-3">Support</span>
-          <a href="#faq">FAQ</a>
-          <a href="#help">Help Center</a>
-        </div>
-        <div class="col-12 text-center mt-5 mb-5">
-          <span>© Copyright Chatably</span>
-        </div>
-      </div>
-    </footer>
+    <footer class="container ps-4 ps-md-0" id="websiteFooter"></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- This script provides interactivity for Bootstrap components. -->
     <script src="/js/htmlComponentsScripts/loadHeader.js"></script>
+    <script src="/js/htmlComponentsScripts/loadFooter.js"></script>
+    <script src="/js/htmlComponentsScripts/loadFirstContainer.js"></script>
+    <script src="/js/htmlComponentsScripts/loadThirdContainer.js"></script>
     <script type="module" src="../js/posts/displayAllPosts.js"></script>
     <script type="module" src="../js/posts/createPost.js"></script>
     <script type="module" src="../js/posts/editPost.js"></script>

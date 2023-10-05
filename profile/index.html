@@ -25,95 +25,53 @@
   </head>
 
   <body>
-    <!-- HEADER -->
-    <header class="container-fluid">
-      <div
-        class="header-content d-flex align-items-center justify-content-between"
-      >
-        <!-- Header col 1 / logo -->
-        <div class="">
-          <a class="navbar-brand" href="../feed/index.html"
-            ><img class="navbar-logo" src="../images/auth-logo-new.png" alt=""
-          /></a>
-        </div>
-        <!-- Header col 2 / Searchbar -->
-        <div class="d-flex searchbar_header">
-          <button
-            class="d-md-none searchbar-btn_header"
-            type="button"
-            aria-label="Toggle searchbar"
-          >
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <div
-            class="searchbar_header-input-container d-none d-md-block shadow-lg"
-          >
-            <input
-              type="text"
-              id="searchbar-header"
-              class="form-control searchbar-input_header"
-              placeholder="Search Chatably"
-            />
-          </div>
-        </div>
-        <!-- Header col 3 / profile img-->
-        <nav class="navbar">
-          <button
-            class="nav-toggler_navbar"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <img src="../images/people_thumbnails/johnwick.jpg" />
-          </button>
-          <div
-            class="collapse navbar-collapse custom-nav_header shadow-lg"
-            id="navbarNav"
-          >
-            <ul class="navbar-nav">
-              <li class="nav-item nav-item_header">
-                <a class="nav-link" href="../profile/index.html">
-                  <img
-                    src="../images/people_thumbnails/johnwick.jpg"
-                    class="me-2"
-                  />
-                  <span>My profile</span>
-                </a>
-              </li>
-              <li class="nav-item nav-item_header active">
-                <a class="nav-link" href="../feed/index.html">
-                  <i class="fa-solid fa-rss"></i>
-                  <span>Feed</span>
-                </a>
-              </li>
-              <li class="nav-item nav-item_header">
-                <a class="nav-link" href="../account/index.html">
-                  <i class="fa-solid fa-user"></i>
-                  <span>My account</span>
-                </a>
-              </li>
-              <li class="nav-item nav-item_header">
-                <a class="nav-link" href="../settings/index.html">
-                  <i class="fa-solid fa-gear"></i>
-                  <span>Settings</span>
-                </a>
-              </li>
-              <li class="nav-item nav-item_header">
-                <a class="nav-link" href="../index.html">
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  <span>Log out</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
-
+    <header class="container-fluid" id="websiteHeader"></header>
     <main>
+      <!--Top container - Profile-->
+      <div class="container-fluid">
+        <!-- Profile Info -->
+        <div class="col text-center mt-3">
+          <img
+            src="/IMAGES/people_thumbnails/johnwick.jpg"
+            class="img-thumbnail profile-img"
+            alt="Profile Image"
+          />
+          <h1 class="profile-name mt-3">John Wick</h1>
+          <button type="button" class="btn btn-primary mb-3">Follow</button>
+          <div class="profile-follow-container">
+            <span class="me-3"><strong>15</strong> Following</span>
+            <span><strong>1.3m</strong> Followers</span>
+          </div>
+        </div>
+        <div class="list-group list-group-horizontal mb-3 mt-3">
+          <button
+            type="button"
+            class="list-group-item list-group-item-action text-center active"
+            aria-current="true"
+          >
+            Feed
+          </button>
+          <button
+            type="button"
+            class="list-group-item list-group-item-action text-center"
+          >
+            About
+          </button>
+          <button
+            type="button"
+            class="list-group-item list-group-item-action text-center"
+          >
+            Friends
+          </button>
+          <button
+            type="button"
+            class="list-group-item list-group-item-action text-center"
+          >
+            Photos
+          </button>
+        </div>
+      </div>
+
       <div class="container-fluid">
         <div class="row">
           <!-- 1.container-->
@@ -179,150 +137,106 @@
           </div>
 
           <!-- 2.container-->
-          <div class="col-md-9 col-lg-6 second-container">
-            <!-- Profile Info -->
-            <div class="col text-center mt-3">
-              <img
-                src="/IMAGES/people_thumbnails/johnwick.jpg"
-                class="img-thumbnail profile-img"
-                alt="Profile Image"
-              />
-              <h1 class="profile-name mt-3">John Wick</h1>
-              <button type="button" class="btn btn-primary mb-3">Follow</button>
-              <div class="profile-follow-container">
-                <span class="me-3"><strong>15</strong> Following</span>
-                <span><strong>1.3m</strong> Followers</span>
-              </div>
-            </div>
-            <div class="list-group list-group-horizontal mb-3 mt-3">
-              <button
-                type="button"
-                class="list-group-item list-group-item-action text-center active"
-                aria-current="true"
-              >
-                Feed
+          <!-- User Posts -->
+          <div
+            class="container col-md-9 col-lg-6 second-container feed-section"
+          >
+            <!-- Create New Post -->
+            <div>
+              <button class="col-12 btn btn-primary create-post-btn mt-3 mb-3">
+                Create new post
               </button>
-              <button
-                type="button"
-                class="list-group-item list-group-item-action text-center"
-              >
-                About
-              </button>
-              <button
-                type="button"
-                class="list-group-item list-group-item-action text-center"
-              >
-                Friends
-              </button>
-              <button
-                type="button"
-                class="list-group-item list-group-item-action text-center"
-              >
-                Photos
-              </button>
+              <form class="create-post-form d-none" method="post">
+                <div class="mb-3">
+                  <label for="postTitle" class="form-label">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postTitle"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="postBody" class="form-label">Content</label>
+                  <textarea
+                    class="form-control"
+                    id="postBody"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="col-12 btn btn-primary mb-3"
+                  id="postSubmit"
+                >
+                  Submit
+                </button>
+                <button
+                  type="submit"
+                  class="col-12 btn btn-primary mb-3 d-none"
+                  id="postEditSubmit"
+                >
+                  Submit changes
+                </button>
+              </form>
             </div>
 
-            <!-- User Posts -->
-            <div class="col-12 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-top-section mb-3 d-flex align-items-center">
-                    <img
-                      class="me-3"
-                      src="/IMAGES/people_thumbnails/johnwick.jpg"
-                      alt="friend-profilepicture"
-                    />
-                    <div class="card-top-text d-flex flex-column">
-                      <span>John Wick</span>
-                      <span>1 min ago</span>
-                    </div>
-                  </div>
-                  <h3 class="card-title post-title">
-                    Somebody just killed my dog
-                  </h3>
-                  <p class="card-text">
-                    On my way to the Continental. Shit's about to go down.
-                  </p>
+            <div class="col-12 mb-2">
+              <div class="row justify-content-between">
+                <h2 class="col-auto">Recent posts</h2>
+                <!--Filter posts / Dropdown Menu-->
+                <div class="col-auto dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="filterDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Filter Posts
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                    <li>
+                      <a
+                        class="dropdown-item filterPosts-menu"
+                        data-filter="newest"
+                        href="#"
+                        >Newest</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item filterPosts-menu"
+                        data-filter="oldest"
+                        href="#"
+                        >Oldest</a
+                      >
+                    </li>
+                    <!-- <li>
+                    <a
+                      class="dropdown-item filterPosts-menu"
+                      data-filter="most_comments"
+                      href="#"
+                      >Most comments</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item filterPosts-menu"
+                      data-filter="most_reactions"
+                      href="#"
+                      >Most reactions</a
+                    >
+                  </li> -->
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="col-12 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-top-section mb-3 d-flex align-items-center">
-                    <img
-                      class="me-3"
-                      src="/IMAGES/people_thumbnails/johnwick.jpg"
-                      alt="friend-profilepicture"
-                    />
-                    <div class="card-top-text d-flex flex-column">
-                      <span>John Wick</span>
-                      <span>2 days ago</span>
-                    </div>
-                  </div>
-                  <h3 class="card-title post-title">
-                    Just chill'n with my dog
-                  </h3>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Perferendis, vel, at repellendus, quidem molestias
-                    doloremque modi unde tempore distinctio officiis voluptatum.
-                    Repellat mollitia libero impedit sunt, laudantium nostrum
-                    eaque culpa!
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-top-section mb-3 d-flex align-items-center">
-                    <img
-                      class="me-3"
-                      src="/IMAGES/people_thumbnails/johnwick.jpg"
-                      alt="friend-profilepicture"
-                    />
-                    <div class="card-top-text d-flex flex-column">
-                      <span>John Wick</span>
-                      <span>7 days ago</span>
-                    </div>
-                  </div>
-                  <h3 class="card-title post-title">
-                    Just got a new bike today. Great stuff
-                  </h3>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Perferendis, vel, at repellendus, quidem molestias
-                    doloremque modi unde tempore distinctio officiis voluptatum.
-                    Repellat mollitia libero impedit sunt, laudantium nostrum
-                    eaque culpa!
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-top-section mb-3 d-flex align-items-center">
-                    <img
-                      class="me-3"
-                      src="/IMAGES/people_thumbnails/johnwick.jpg"
-                      alt="friend-profilepicture"
-                    />
-                    <div class="card-top-text d-flex flex-column">
-                      <span>John Wick</span>
-                      <span>3 weeks ago</span>
-                    </div>
-                  </div>
-                  <h3 class="card-title post-title">Yeah...</h3>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Perferendis, vel, at repellendus, quidem molestias
-                    doloremque modi unde tempore distinctio officiis voluptatum.
-                    Repellat mollitia libero impedit sunt, laudantium nostrum
-                    eaque culpa!
-                  </p>
-                </div>
+            <div class="feed-posts-section">
+              <!-- All posts in feed -->
+              <div class="row">
+                <div class="col-12 mb-3 card-container"></div>
               </div>
             </div>
           </div>
@@ -521,6 +435,7 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/components/searchbarHeader.js"></script>
+    <!-- This script provides interactivity for Bootstrap components. -->
+    <script src="/js/htmlComponentsScripts/loadHeader.js"></script>
   </body>
 </html>

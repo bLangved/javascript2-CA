@@ -1,22 +1,29 @@
+import { updateProfileImage } from "./updateProfileImage.js";
+
+const username = localStorage.getItem("username");
+
 const API_BASE_URL = "https://api.noroff.dev/api/v1";
-const profileEndpoint = "/social/profiles/bjornar_heian";
-const endpointUrl = `${API_BASE_URL}${profileEndpoint}`;
 
-const AuthorizationToken = localStorage.getItem("accessToken");
+const profileEndpoint = `/social/profiles/${username}`;
+const profileUrl = `${API_BASE_URL}${profileEndpoint}`;
 
-async function fetchProfile(endpointUrl, AuthorizationToken){
+const updateProfileEndpoint = `/social/profiles/${username}/media`;
+const updateProfileUrl = `${API_BASE_URL}${updateProfileEndpoint}`;
+
+const authToken = localStorage.getItem("accessToken");
+
+async function fetchProfile(profileUrl, authToken){
     try {
         const data = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${AuthorizationToken}`
+                "Authorization": `Bearer ${authToken}`
             }
         };
-        const response = await fetch(endpointUrl, data);
+        const response = await fetch(profileUrl, data);
         const json = await response.json();
         createProfile(json);
-        console.log(json);
     } catch (error) {
         console.log(error)
     }
@@ -29,13 +36,21 @@ function createProfile(profileData){
 
     const profileImg = document.createElement("img");
     profileImg.classList.add("img-thumbnail", "profile-img");
-    profileImg.src = profileData.avatar;
-    profileImg.alt = `${profileData.name}'s profile Image`;
+        if (profileData.avatar) {
+            profileImg.src = profileData.avatar;
+        } else {
+            profileImg.src = "/images/profile/profile-img_default.png";
+        }
+    profileImg.alt = `${profileData.name.replace("_", " ")}'s profile Image`;
+    updateProfileImage(profileImg, updateProfileUrl, authToken) // update / store new profile avatar
     profileSection.append(profileImg);
+
 
     const profileName = document.createElement("h1");
     profileName.classList.add("profile-name", "mt-3");
-    profileName.innerText = profileData.name;
+    const nameWithSpace = profileData.name.replace("_", " ");
+    const capitalizedName = nameWithSpace.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    profileName.innerText = capitalizedName;
     profileSection.append(profileName);
 
     const followButton = document.createElement("button");
@@ -68,7 +83,7 @@ function createProfile(profileData){
 
 
 }
-fetchProfile(endpointUrl, AuthorizationToken);
+fetchProfile(profileUrl, authToken);
 
 
 

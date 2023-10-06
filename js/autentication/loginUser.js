@@ -18,7 +18,7 @@ const loginErrorContainer = document.querySelector("#loginUserError");
 
 // -- Login user to database -- //
 export async function loginUser(url, userData){
-    console.log(url, userData);
+    // console.log(url, userData);
     try {
         const postData = {
             method: "POST",
@@ -28,12 +28,14 @@ export async function loginUser(url, userData){
             body: JSON.stringify(userData), 
         };
         const response = await fetch(url, postData);
-        console.log(response);
+        // console.log(response);
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         const accessToken = json.accessToken;
         localStorage.setItem("accessToken", accessToken);
-        console.log(accessToken);
+        const username = json.name;
+        localStorage.setItem("username", username);
+        // console.log(accessToken);
         AuthorizeToken(`${API_BASE_URL}${getAllPostsEndpoint}`);
     } catch (error) {
         console.log(error);
@@ -45,9 +47,9 @@ export async function loginUser(url, userData){
 
 export async function AuthorizeToken(url){
     try {
-        console.log(url);
+        // console.log(url);
         const token = localStorage.getItem("accessToken");
-        console.log(token);
+        // console.log(token);
         const fetchOptions = {
             method: "GET",
             headers: {
@@ -56,15 +58,15 @@ export async function AuthorizeToken(url){
             },
         }
         const respons = await fetch(url, fetchOptions);
-        console.log(respons);
+        // console.log(respons);
         const json = await respons.json();
-        console.log(json);
+        // console.log(json);
         if (respons.ok) {
             // This is ONLY for testing purpose atm. I want to check the console before it takes me further. 
             
             setTimeout(() => {
                 hideLoadingAnimation();
-                window.location.href = "../feed/index.html";
+                window.location.href = "/feed/index.html";
             }, 3000)
             
         } else {

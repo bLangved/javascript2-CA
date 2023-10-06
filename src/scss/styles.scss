@@ -323,5 +323,18 @@ font-size: 0.875rem;
 }
 
 .profile-img{
-    max-width: 12.5em;
+    cursor: pointer;
+    width: 12.5em;
+    height: 12.5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-image_navbar-container {
+    position: absolute;
+    top: 5em;
+    left: 5em;
+    z-index: 999;
+    height: fit-content;
+    width: fit-content;
 }

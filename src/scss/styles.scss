@@ -5,6 +5,7 @@
 a{
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 }
 
 [aria-current] {
@@ -332,9 +333,10 @@ font-size: 0.875rem;
 
 .profile-image_navbar-container {
     position: absolute;
-    top: 5em;
-    left: 5em;
-    z-index: 999;
+    z-index: 99;
+    top: 21em;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: fit-content;
     width: fit-content;
 }

@@ -8,7 +8,7 @@ import { formateUsername } from "/js/formating/formatUsername.js";
 const cardsContainer = document.querySelector(".card-container")
 
 
-export function createCard(objectData){
+export function createCard(objectData, username, avatar){
     // Create the card for the post
 
     const card = document.createElement("div");
@@ -28,8 +28,10 @@ export function createCard(objectData){
                 // User image
                 const userImg = document.createElement("img");
                 userImg.classList.add("me-3");
-                userImg.src = localStorage.getItem("avatar");
-                userImg.alt = "Your profile-image";
+                // Check if avatar is valid, if not set default image
+                const validAvatar = avatar && avatar.trim() !== "" ? avatar : "/images/profile/profile-img_default.png";
+                userImg.src = validAvatar;
+                userImg.alt = `${username}'s profile-image`;
                 topSection.append(userImg);
             
                 // User name & post date
@@ -37,7 +39,7 @@ export function createCard(objectData){
                 topText.classList.add("card-top-text", "d-flex", "flex-column");
 
                     const userName = document.createElement("span");
-                    userName.innerText = formateUsername(localStorage.getItem("username"));
+                    userName.innerText = formateUsername(username);
                     topText.append(userName);
 
                     // sends the date retrieved from the json (creation time of post) into formateDate() for better date-formatting. 

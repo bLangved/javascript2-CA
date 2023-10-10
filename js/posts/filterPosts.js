@@ -10,6 +10,8 @@
 
 // Data is an array of posts. The content of the arrays gets sorted in reverse as default, so newest entries gets displayed first. 
 export function filterPosts(data, filterType) {
+    // console.log(data);
+    // console.log(filterType);
     if (filterType === "newest") {
         return data.sort((a, b) => new Date(a.created) - new Date(b.created)); // Sort by date descending
     } 
@@ -21,3 +23,4 @@ export function filterPosts(data, filterType) {
         return data.sort((a, b) => new Date(a.created) - new Date(b.created)); 
     }
 }
+

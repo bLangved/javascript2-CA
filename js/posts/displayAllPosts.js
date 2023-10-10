@@ -1,10 +1,7 @@
 import { createCard } from "./postHTML.js";
 import { filterPosts } from "./filterPosts.js";
+import { AllPostsByProfileUrl } from "/js/variables/apiEndpoints.js";
 
-const API_BASE_URL = "https://api.noroff.dev/api/v1";
-
-const allPostsEndpoint = "/social/profiles/bjornar_heian/posts";
-const createPostUrl = `${API_BASE_URL}${allPostsEndpoint}`;
 
 // Check if the user has a session and setup their environment if they do:
 function checkUserSession() {
@@ -15,13 +12,10 @@ function checkUserSession() {
 
 // Setup the user"s environment (e.g., display their posts):
 function setupUserEnvironment() {
-    // ... (any other logic you want when confirming the user"s session)
-
     displayUserPosts();
 }
 
 const filterItems = document.querySelectorAll(".filterPosts-menu");
-
 filterItems.forEach(item => {
     item.addEventListener("click", function(e) {
         e.preventDefault();
@@ -35,7 +29,7 @@ function displayUserPosts(filterType) {
     const accessToken = localStorage.getItem("accessToken");
 
     // fetching posts by accessToken:
-    fetch(createPostUrl, {
+    fetch(AllPostsByProfileUrl, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${accessToken}`,

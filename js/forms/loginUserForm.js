@@ -1,35 +1,24 @@
+import { loginUrl } from "/js/variables/apiEndpoints.js";
 import { checkLength, validateNoroffEmail} from "../validation/inputCheck.js";
 import { loginUser } from "../autentication/loginUser.js";
 import { showLoadingAnimation } from "../components/loadingAnimation.js";
 
-
-const API_BASE_URL = "https://api.noroff.dev";
-const loginEndpoint = "/api/v1/social/auth/login";
-
 const textLogin = document.querySelector("#textLogin");
-
 const formContainer = document.querySelector("#formContainer")
 const form = document.querySelector("#loginForm");
 const formErrorMessage = document.querySelector("#loginUserErrorMessage");
-
 const email = document.querySelector("#emailLogin");
 const password = document.querySelector("#passwordLogin");
 const submitButton = document.querySelector("#submitButtonLogin");
-
 const emailErrorMessage = document.querySelector("#emailErrorMessage");
 const passwordErrorMessage = document.querySelector("#passwordErrorMessage");
-
 const iconMailSucsess = document.querySelector("#emailLoginSucsess");
 const iconMailError = document.querySelector("#emailLoginError");
 const iconPasswordSucsess = document.querySelector("#passwordLoginSucsess");
 const iconPasswordError = document.querySelector("#passwordLoginError");
 
-
 const requiredFields = [email, password];
-
 function validateForm() {
-    console.clear();
-    
     // Validation: Makes else-statements invalid for enabling submit-button
     let validationPassed = true;
 
@@ -79,8 +68,6 @@ requiredFields.forEach((field) => {
         const isValidationPassed = validateForm();
         if (isValidationPassed) {
             Object.assign(submitButton.style, submitReady);
-            console.log("Email: " + email.value);
-            console.log("Password: " + password.value);
         }
         else {
             submitButton.style.backgroundColor = ""; // Removes the sucsess validation color on the button if it does not meet requirements anymore. 
@@ -105,7 +92,6 @@ submitButton.addEventListener("click", async (e) => {
         textLogin.textContent = "Logging inn to Chatably"
         formContainer.classList.add("d-none");
         showLoadingAnimation();
-        const loginUrl = `${API_BASE_URL}${loginEndpoint}`;
         loginUser(loginUrl, userToLogin);
     }
 });

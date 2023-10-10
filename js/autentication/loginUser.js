@@ -1,23 +1,18 @@
-import { hideLoadingAnimation } from "../components/loadingAnimation.js";
-
-const API_BASE_URL = "https://api.noroff.dev";
-const getAllPostsEndpoint = "/api/v1/social/posts";
+import authToken from "/js/variables/localStorage.js";
+import { allPostsUrl } from "/js/variables/apiEndpoints.js";
+import { hideLoadingAnimation } from "/js/components/loadingAnimation.js";
+ 
 
 const loginSucsessfulContainer = document.querySelector("#loginUserSucsessful");
 const loginErrorContainer = document.querySelector("#loginUserError");
 
-
 /**
- * API call that Login user to client
- * @param {string} url 
- * @param {any} userData 
- * ```js
- * loginUser(loginUrl, userToLogin)
- * ```
+ * @param {string} url login api endpoint 
+ * @param {any} userData user object
+ * @description Login user to database
+ * @description User authToken, username and avatar gets "set" in localStorage here. Gets exported from localStorage.js as variables.
  */
-
-// -- Login user to database -- //
-export async function loginUser(url, userData){
+export async function loginUser(url, userData) {
     // console.log(url, userData);
     try {
         const postData = {
@@ -28,42 +23,36 @@ export async function loginUser(url, userData){
             body: JSON.stringify(userData), 
         };
         const response = await fetch(url, postData);
-        // console.log(response);
         const json = await response.json();
-        // console.log(json);
         const accessToken = json.accessToken;
-        localStorage.setItem("accessToken", accessToken);
         const username = json.name;
+        const avatar = json.avatar;
+        localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("username", username);
-        // console.log(accessToken);
-        AuthorizeToken(`${API_BASE_URL}${getAllPostsEndpoint}`);
+        localStorage.setItem("avatar", avatar);
+        AuthorizeToken(allPostsUrl);
     } catch (error) {
         console.log(error);
     }
 };
 
-
-// -- Autorize token and login -- //
-
+/**
+ * @param {string} url Displaying all user posts endpoint
+ * @description Autorize token from server and login user
+ */
 export async function AuthorizeToken(url){
     try {
-        // console.log(url);
-        const token = localStorage.getItem("accessToken");
-        // console.log(token);
         const fetchOptions = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${authToken}`,
             },
         }
         const respons = await fetch(url, fetchOptions);
-        // console.log(respons);
         const json = await respons.json();
-        // console.log(json);
         if (respons.ok) {
             // This is ONLY for testing purpose atm. I want to check the console before it takes me further. 
-            
             setTimeout(() => {
                 hideLoadingAnimation();
                 window.location.href = "/feed/index.html";

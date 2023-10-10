@@ -1,3 +1,16 @@
+import { avatar } from "/js/variables/localStorage.js";
+/** 
+ * Sets profile avatar in header
+ */
+export function setAvatarThumbnail(imageUrl) {
+    localStorage.setItem("avatar", imageUrl);
+    const newAvatarImg = localStorage.getItem("avatar");
+    const avatarHeaders = document.querySelectorAll(".avatar-thumbnail");
+    avatarHeaders.forEach(header => {
+        header.src = newAvatarImg;
+    });
+}
+
 /**
  * Loads in the header HTML-content located inside websiteHeader.html
  */
@@ -7,6 +20,7 @@ function loadHeader() {
     .then(data => {
         document.querySelector("#websiteHeader").innerHTML = data;
         initializeSearchbar(); // Calls the function after the header is loaded
+        setAvatarThumbnail(avatar);
     });
 };
 
@@ -27,7 +41,6 @@ function initializeSearchbar() {
         }
     });
 
-    
     /**
      * Filters the posts on the website based on text input in searchbar
      * 
@@ -53,3 +66,4 @@ function initializeSearchbar() {
     }
 }
 loadHeader();
+

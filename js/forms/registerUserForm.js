@@ -1,8 +1,6 @@
+import { registerUrl } from "/js/variables/apiEndpoints.js";
 import { checkLength, validateNoroffEmail} from "../validation/inputCheck.js";
 import { registerUser } from "../autentication/createUser.js";
-
-const API_BASE_URL = "https://api.noroff.dev/api/v1";
-const registerEndpoint = "/social/auth/register";
 
 const form = document.querySelector("#createForm");
 const formErrorMessage = document.querySelector("#createUserErrorMessage");
@@ -33,15 +31,11 @@ const iconPasswordConfirmSucsess = document.querySelector("#createPasswordConfir
 const iconPasswordConfirmError = document.querySelector("#createPasswordConfirmError");
 
 const requiredFields = [firstName, lastName, email, password, passwordConfirm];
-
 function validateForm() {
-    console.clear();
-    
     // Validation: Makes else-statements invalid for enabling submit-button
     let validationPassed = true;
 
-    // First name
-    // Checks name input-value, to check if it matches pattern
+    // Checks firstName input-value, to check if it matches pattern
     if (checkLength(firstName.value, 2) === true) {
         iconFirstNameSucsess.classList.remove("d-none");
         iconFirstNameError.classList.add("d-none");
@@ -55,7 +49,7 @@ function validateForm() {
         }
         validationPassed = false;
     }
-    // Last name
+    // Checks lastName input-value, to check if it matches pattern
     if (checkLength(lastName.value, 2) === true) {
         iconLastNameSucsess.classList.remove("d-none");
         iconLastNameError.classList.add("d-none");
@@ -69,7 +63,6 @@ function validateForm() {
         }
         validationPassed = false;
     }
-    // Email
     // Checks email input-value, to check if it matches email-pattern
     if (validateNoroffEmail(email.value) === true) {
         iconMailSucsess.classList.remove("d-none");
@@ -85,19 +78,15 @@ function validateForm() {
         validationPassed = false;
     }
 
-    // Autogenerates an email for the user that matches the email pattern required by the API. 
-
+    /**
+     * @description Function that autogenerates an email for the user that matches API email-pattern requirements.
+     * @description User chooses if said user is student/employee by dropdown menu
+     */
     function updateEmailBasedOnName() {
         const first = firstName.value;
         const last = lastName.value;
-        
-        // Get the selected email type
         const selectedEmailType = emailType.value;
-        
-        // Combine the first name and last name, separated by a '.'
         const combined = `${first}.${last}`;
-        
-        // Update the email field based on the selected email type
         email.value = combined + "@" + selectedEmailType;
     }
 
@@ -106,7 +95,6 @@ function validateForm() {
     lastName.addEventListener("input", updateEmailBasedOnName);
     emailType.addEventListener("change", updateEmailBasedOnName);
 
-    // Password
     // Checks password input-value, to check so it does not contain spaces and required length
     if(checkLength(password.value, 8) === true) {
         iconPasswordSucsess.classList.remove("d-none");
@@ -121,7 +109,6 @@ function validateForm() {
         }
         validationPassed = false;
     }
-    // Confirm password
     // Checks if the confirmation password matches the original password
     if (passwordConfirm.value !== password.value) {
         if (passwordConfirm.targeted) {
@@ -150,18 +137,12 @@ const submitReady = {
 
 // This block validates the form in real-time as the user types into the input fields
 requiredFields.forEach((field) => {
-    // Does not show error message if input-field is not targeted
     field.targeted = false;
     field.addEventListener("input", () => {
         field.targeted = true;
         const isValidationPassed = validateForm();
         if (isValidationPassed) {
             Object.assign(submitButton.style, submitReady);
-            console.log("First name: " + firstName.value);
-            console.log("Last name: " + lastName.value);
-            console.log("Email: " + email.value);
-            console.log("Password: " + password.value);
-            console.log("Confirmed password: " + passwordConfirm.value);
         }
         else {
             submitButton.style.backgroundColor = ""; // Removes the sucsess validation color on the button if it does not meet requirements anymore. 
@@ -170,7 +151,7 @@ requiredFields.forEach((field) => {
 });
 
 // This block handles the form submission event
-submitButton.addEventListener('click', async (e) => {
+submitButton.addEventListener("click", async (e) => {
     e.preventDefault(); // Prevent the form from submitting by default
     const isValidationPassed = validateForm();
     if (!isValidationPassed) {
@@ -178,16 +159,12 @@ submitButton.addEventListener('click', async (e) => {
         formErrorMessage.textContent = "Please ensure all fields are valid before proceeding!";
     } else {
         formErrorMessage.textContent = ""; // Clear any existing error messages
-
-        // Concatinates first and last name with an "_" between them.
-        const fullName = `${firstName.value}_${lastName.value}`;
-
+        const fullName = `${firstName.value}_${lastName.value}`; // Required Concatination by API
         const userToRegister = {
             name: fullName, 
             email: email.value, 
             password: password.value, 
         };
-        const registerUrl = `${API_BASE_URL}${registerEndpoint}`;
         form.classList.add("d-none");
         await registerUser(registerUrl, userToRegister);
         // TODO: Handle the form submission process after the API call

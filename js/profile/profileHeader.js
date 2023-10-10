@@ -1,16 +1,7 @@
-import { updateProfileImage } from "./updateProfileImage.js";
-
-const username = localStorage.getItem("username");
-
-const API_BASE_URL = "https://api.noroff.dev/api/v1";
-
-const profileEndpoint = `/social/profiles/${username}`;
-const profileUrl = `${API_BASE_URL}${profileEndpoint}`;
-
-const updateProfileEndpoint = `/social/profiles/${username}/media`;
-const updateProfileUrl = `${API_BASE_URL}${updateProfileEndpoint}`;
-
-const authToken = localStorage.getItem("accessToken");
+import authToken from "/js/variables/localStorage.js";
+import { profileUrl, updateProfileUrl } from "/js/variables/apiEndpoints.js";
+import { viewProfileAvatar, setProfileAvatar, deleteProfileAvatar, isValidUrl } from "./adjustProfileImage.js";
+import { formateUsername } from "/js/formating/formatUsername.js";
 
 async function fetchProfile(profileUrl, authToken){
     try {
@@ -29,7 +20,6 @@ async function fetchProfile(profileUrl, authToken){
     }
 };
 
-
 const profileSection = document.querySelector("#profileSection");
 
 function createProfile(profileData){
@@ -42,15 +32,87 @@ function createProfile(profileData){
             profileImg.src = "/images/profile/profile-img_default.png";
         }
     profileImg.alt = `${profileData.name.replace("_", " ")}'s profile Image`;
-    updateProfileImage(profileImg, updateProfileUrl, authToken) // update / store new profile avatar
     profileSection.append(profileImg);
+    
+    const profileImgOptions = document.createElement("div");
+    profileImgOptions.classList.add("dropdown-menu", "profile-image_navbar-container", "d-none");
+    profileSection.append(profileImgOptions);
 
+
+    const watchItem = document.createElement("a");
+    watchItem.classList.add("dropdown-item");
+    watchItem.innerText = "Watch profile Image";
+    profileImgOptions.append(watchItem);
+
+    watchItem.addEventListener("click", async () =>{
+        const avatarUrl = await viewProfileAvatar(profileUrl, authToken);
+        if (avatarUrl) {
+            window.open(avatarUrl);
+        } 
+        else if(!avatarUrl){
+            console.log("There is no profile image uploaded");
+        }
+        else {
+            console.log("There was an error displaying the profile image");
+        }
+    });
+
+    const changeItem = document.createElement("a");
+    changeItem.classList.add("dropdown-item");
+    changeItem.innerText = "Change profile Image";
+    profileImgOptions.append(changeItem);
+
+    changeItem.addEventListener("click", async () => {
+        const imageUrl = prompt("Please enter the image URL:");
+        if (imageUrl) {
+            if (isValidUrl(imageUrl)) {
+                profileImg.src = imageUrl;
+                await setProfileAvatar(updateProfileUrl, authToken, imageUrl);
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+    });
+
+    const deleteItem = document.createElement("a");
+    deleteItem.classList.add("dropdown-item");
+    deleteItem.innerText = "Delete profile image";
+    profileImgOptions.append(deleteItem);
+
+    deleteItem.addEventListener("click", async () => {
+        const deletePrompt = confirm("Are you sure you want to delete your profile image?");
+        if (deletePrompt) {
+                await deleteProfileAvatar(updateProfileUrl, authToken);
+            }
+        }
+    );
+
+    /**
+     * - document.addEventListener
+     * - profileImg.addEventListener
+     * Both event listeners for clicking on the profile image / outside the image, and show/hide the container for adjusting it. 
+     */
+    document.addEventListener("click", (event) => {
+        if (
+            event.target !== profileImg &&
+            event.target !== profileImgOptions
+        ) {
+            profileImgOptions.classList.add("d-none");
+        }
+    });
+    profileImg.addEventListener("click", () => {
+        profileImgOptions.classList.toggle("d-none");
+        if(!profileImgOptions.classList.contains("d-none")){
+            profileImgOptions.classList.add("d-block");
+        }
+        else{
+            profileImgOptions.classList.remove("d-block");
+        }
+    });
 
     const profileName = document.createElement("h1");
     profileName.classList.add("profile-name", "mt-3");
-    const nameWithSpace = profileData.name.replace("_", " ");
-    const capitalizedName = nameWithSpace.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    profileName.innerText = capitalizedName;
+    profileName.innerText = formateUsername(profileData.name);
     profileSection.append(profileName);
 
     const followButton = document.createElement("button");
@@ -80,16 +142,5 @@ function createProfile(profileData){
         followContainer.append(followers);
 
     profileSection.append(followContainer);
-
-
 }
 fetchProfile(profileUrl, authToken);
-
-
-
-
-
-
-
-
-

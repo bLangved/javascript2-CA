@@ -1,6 +1,6 @@
 import { registerUrl } from "/js/variables/apiEndpoints.js";
 import { checkLength, validateNoroffEmail} from "../validation/inputCheck.js";
-import { registerUser } from "../autentication/createUser.js";
+import { registerUser } from "/js/autentication/createUser.js";
 
 const form = document.querySelector("#createForm");
 const formErrorMessage = document.querySelector("#createUserErrorMessage");
@@ -167,6 +167,5 @@ submitButton.addEventListener("click", async (e) => {
         };
         form.classList.add("d-none");
         await registerUser(registerUrl, userToRegister);
-        // TODO: Handle the form submission process after the API call
     }
 });

@@ -1,5 +1,5 @@
-const createSucsessfulContainer = document.querySelector("#createUserSucsessful");
-const createErrorContainer = document.querySelector("#createUserError");
+// const createSucsessfulContainer = document.querySelector("#createUserSucsessful");
+// const createErrorContainer = document.querySelector("#createUserError");
 
 /**
  * API call that registers the user to the database

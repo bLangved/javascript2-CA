@@ -1,4 +1,4 @@
-import authToken from "/js/variables/localStorage.js";
+// import authToken from "/js/variables/localStorage.js";
 import { allPostsUrl } from "/js/variables/apiEndpoints.js";
 import { hideLoadingAnimation } from "/js/components/loadingAnimation.js";
  
@@ -46,7 +46,7 @@ export async function AuthorizeToken(url){
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${authToken}`,
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
         }
         const respons = await fetch(url, fetchOptions);

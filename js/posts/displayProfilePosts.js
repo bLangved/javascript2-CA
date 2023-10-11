@@ -1,9 +1,10 @@
+import authToken from "/js/variables/localStorage.js";
+import { username } from "/js/variables/localStorage.js";
+import API_BASE_URL from "/js/variables/apiEndpoints.js";
 import { createCard } from "./postHTML.js";
 import { filterPosts } from "./filterPosts.js";
 
-const API_BASE_URL = "https://api.noroff.dev/api/v1";
-
-const allPostsEndpoint = "/social/profiles/bjornar_heian/posts";
+const allPostsEndpoint = `/social/profiles/${username}/posts`;
 const createPostUrl = `${API_BASE_URL}${allPostsEndpoint}`;
 
 // Check if the user has a session and setup their environment if they do:
@@ -32,13 +33,10 @@ filterItems.forEach(item => {
 
 // Fetch the posts associated with the current user and display them:
 function displayUserPosts(filterType) {
-    const accessToken = localStorage.getItem("accessToken");
-
-    // fetching posts by accessToken:
     fetch(createPostUrl, {
         method: "GET",
         headers: {
-            "Authorization": `Bearer ${accessToken}`,
+            "Authorization": `Bearer ${authToken}`,
             "Content-Type": "application/json",
         }
     })

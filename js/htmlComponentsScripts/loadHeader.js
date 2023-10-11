@@ -1,4 +1,5 @@
 import { avatar } from "/js/variables/localStorage.js";
+import { initializeLogOut } from "/js/autentication/logOutUser.js";
 /** 
  * Sets profile avatar in header
  */
@@ -14,13 +15,14 @@ export function setAvatarThumbnail(imageUrl) {
 /**
  * Loads in the header HTML-content located inside websiteHeader.html
  */
-function loadHeader() {
+function loadHeader(callback) {
     fetch("/htmlComponents/websiteHeader.html")
     .then(response => response.text())
     .then(data => {
         document.querySelector("#websiteHeader").innerHTML = data;
         initializeSearchbar(); // Calls the function after the header is loaded
         setAvatarThumbnail(avatar);
+        callback();  // Notify that the header is loaded
     });
 };
 
@@ -65,5 +67,8 @@ function initializeSearchbar() {
         });
     }
 }
-loadHeader();
+loadHeader(() => {
+    // This will be called after the header is loaded.
+    initializeLogOut(); 
+});
 

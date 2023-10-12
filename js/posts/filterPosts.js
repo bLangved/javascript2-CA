@@ -3,9 +3,6 @@
  * 
  * @param {any} data JSON containing all posts thats rendered on the page
  * @param {string} filterType HTML data-filter for categorizing array-order
- * ```js
- * filterPosts(data, filterType)
- * ```
  */
 
 // Data is an array of posts. The content of the arrays gets sorted in reverse as default, so newest entries gets displayed first. 

@@ -12,10 +12,17 @@ let offset = 0;
 const limit = 50;
 const cardsContainer = document.querySelector(".card-container");
 
+function saveToSessionStorage(key, data) {
+    sessionStorage.setItem(key, JSON.stringify(data));
+}
+
+function getFromSessionStorage(key) {
+    const data = sessionStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+}
+
 async function getAllProfiles() {
     try {
-        showLoadingAnimation();
-
         const response = await fetch(`${allProfilesUrl}?limit=${limit}&offset=${offset}`, {
             method: "GET",
             headers: {
@@ -85,17 +92,29 @@ async function getPostsOfProfiles(profileName, profileAvatar) {
 
 // Function to process and display the posts once all fetching is done
 function processAndDisplayPosts() {
-    const filteredPosts = filterPosts(allPosts, currentFilterType);
+    let filteredPosts = getFromSessionStorage("filteredPosts");
 
-    // Only get the last 30 entries from filteredPosts
-    const last20Posts = filteredPosts.slice(-30);
+    if (!filteredPosts) {
+        filteredPosts = filterPosts(allPosts, currentFilterType);
+        saveToSessionStorage("filteredPosts", filteredPosts);
+    }
+    const last30Posts = filteredPosts.slice(-30);
 
-    last20Posts.forEach(post => {
+    last30Posts.forEach(post => {
         createCard(post, post.profileName, post.profileAvatar);
     });
-
     hideLoadingAnimation();
 }
 
-getAllProfiles();
-cardsContainer.innerHTML = "";
+function initializePosts(){
+    cardsContainer.innerHTML = "";
+    showLoadingAnimation();
+    if (getFromSessionStorage("filteredPosts")) {
+        processAndDisplayPosts();
+    } 
+    else {
+        getAllProfiles();
+    }
+}
+initializePosts();
+

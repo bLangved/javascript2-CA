@@ -4,20 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chatably | Profile</title>
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <!-- SCSS -->
     <link rel="stylesheet" href="../dist/css/styles.css" />
-    <!-- Placeholder Favicon -->
     <link
       rel="shortcut icon"
       href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=16"
       type="image/x-icon"
     />
-    <!-- Fontawesome icons -->
     <script
       src="https://kit.fontawesome.com/4652493b4c.js"
       crossorigin="anonymous"
@@ -26,7 +22,6 @@
   <body>
     <header class="container-fluid" id="websiteHeader"></header>
     <main>
-      <!--Top container - Profile-->
       <div class="container-fluid">
         <div class="text-center mt-3" id="profileSection"></div>
         <div class="list-group list-group-horizontal mb-3 mt-3">
@@ -60,13 +55,11 @@
 
       <div class="container-fluid">
         <div class="row">
-          <!-- 1.container-->
           <div
             class="container col-lg-3 d-none d-lg-block first-container quick-link-section"
             id="firstContainer"
           ></div>
 
-          <!-- 2.container-->
           <div
             class="container col-md-9 col-lg-6 second-container feed-section"
           >
@@ -92,6 +85,16 @@
                     rows="3"
                     required
                   ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="postMedia" class="form-label">Image</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postMedia"
+                    placeholder="Enter URL for media here"
+                    required
+                  />
                 </div>
                 <button
                   type="submit"
@@ -150,7 +153,6 @@
               </div>
             </div>
           </div>
-          <!-- 3.container-->
           <div
             class="container col-md-3 d-none d-md-block third-container"
             id="thirdContainer"
@@ -159,9 +161,7 @@
       </div>
     </main>
     <footer class="container ps-4 ps-md-0" id="websiteFooter"></footer>
-    <!-- This script provides interactivity for Bootstrap components. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Load html components on site -->
     <script
       type="module"
       src="/js/htmlComponentsScripts/loadHeader.js"
@@ -169,7 +169,6 @@
     <script src="/js/htmlComponentsScripts/loadFooter.js"></script>
     <script src="/js/htmlComponentsScripts/loadFirstContainer.js"></script>
     <script src="/js/htmlComponentsScripts/loadThirdContainer.js"></script>
-    <!-- Regular scripts -->
     <script type="module" src="/js/profile/profileHeader.js"></script>
     <script type="module" src="../js/posts/displayProfilePosts.js"></script>
     <script type="module" src="../js/posts/createPost.js"></script>

@@ -6,6 +6,7 @@ const createPostBtn = document.querySelector(".create-post-btn");
 // input fields and submit button
 const postTitle = document.querySelector("#postTitle");
 const postBody = document.querySelector("#postBody");
+const postMedia = document.querySelector("#postMedia")
 const postSubmit = document.querySelector("#postSubmit");
 
 const API_BASE_URL = "https://api.noroff.dev/api/v1";
@@ -29,7 +30,8 @@ postSubmit.addEventListener("click", async (event) => {
     event.preventDefault();
     const postContent = {
             title: postTitle.value, 
-            body: postBody.value  
+            body: postBody.value,
+            media: postMedia.value  
     }
     const AuthorizationToken = localStorage.getItem("accessToken");
     await createPost(createPostUrl, postContent, AuthorizationToken)

@@ -112,6 +112,16 @@ export function createCard(objectData, username, avatar){
 
         cardBody.append(bodyText);
 
+        if (objectData.media) {
+            const bodyMedia = document.createElement("img");
+            bodyMedia.classList.add("card-img");
+            bodyMedia.src = objectData.media;
+            cardBody.append(bodyMedia);
+            bodyMedia.addEventListener("click", () => {
+                window.open(bodyMedia.src, '_blank');
+            });
+        }
+
             const hr1 = document.createElement("hr");
         cardBody.append(hr1);
 

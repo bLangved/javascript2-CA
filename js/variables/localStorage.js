@@ -6,7 +6,7 @@ const authToken = localStorage.getItem("accessToken");
 export default authToken;
 
 /**
- * @param {string} Username Username for logged in user. First name and last name concatted with an underscore. Used in profileEndpoint variable
+ * @param {string} username Username for logged in user. First name and last name concatted with an underscore. Used in profileEndpoint variable
  */
 export const username = localStorage.getItem("username");
 
@@ -14,3 +14,9 @@ export const username = localStorage.getItem("username");
  * @param {string} avatar avatar for logged in user. Used f.ex to set avatar-image in header
  */
 export const avatar = localStorage.getItem("avatar");
+
+
+/**
+ * @param {string} email email address for logged in user. Used f.ex in about-info on profilepage
+ */
+export const email = localStorage.getItem("email");

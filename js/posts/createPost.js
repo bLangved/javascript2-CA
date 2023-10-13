@@ -1,4 +1,4 @@
-import { createCard } from "./postHTML.js";
+import { createCard } from "/js/posts/postsProfileHTML.js";
 
 // The actual form, and button for showing form
 const createPostForm = document.querySelector(".create-post-form");

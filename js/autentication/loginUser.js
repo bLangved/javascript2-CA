@@ -27,9 +27,11 @@ export async function loginUser(url, userData) {
         const accessToken = json.accessToken;
         const username = json.name;
         const avatar = json.avatar;
+        const email = json.email;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("username", username);
         localStorage.setItem("avatar", avatar);
+        localStorage.setItem("email", email);
         AuthorizeToken(allPostsUrl);
     } catch (error) {
         console.log(error);

@@ -2,12 +2,13 @@ import authToken from "/js/variables/localStorage.js";
 import API_BASE_URL from "/js/variables/apiEndpoints.js";
 import { allProfilesUrl } from "/js/variables/apiEndpoints.js";
 import { hideLoadingAnimation, showLoadingAnimation } from "/js/components/loadingAnimation.js";
-import { createCard } from "/js/posts/allPostsHTML.js";
+import { createCard } from "/js/posts/postsFeedHTML.js";
 import { filterPosts } from "/js/posts/filterPosts.js";
 
 let filterType = "newest"; 
 let allProfiles = [];
-let allPosts = [];
+// let allPosts = [];
+let allPosts = getFromSessionStorage("allPosts") || [];  // Retrieve all posts from sessionStorage when initializing
 let offset = 0;
 const limit = 50;
 const filterItems = document.querySelectorAll(".filterPosts-menu");
@@ -108,6 +109,7 @@ async function getPostsOfProfiles(profileName, profileAvatar) {
             post.profileAvatar = profileAvatar;
         });
         allPosts.push(...validPosts);
+        saveToSessionStorage("allPosts", allPosts);
     } catch (error) {
         console.error("Error fetching posts:", error);
     }

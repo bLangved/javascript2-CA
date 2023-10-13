@@ -1,5 +1,5 @@
-import { createCard } from "./postHTML.js";
-import { filterPosts } from "./filterPosts.js";
+import { createCard } from "/js/posts/postsProfileHTML.js";
+import { filterPosts } from "/js/posts/filterPosts.js";
 import { AllPostsByProfileUrl } from "/js/variables/apiEndpoints.js";
 
 

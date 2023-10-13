@@ -1,8 +1,8 @@
 import authToken from "/js/variables/localStorage.js";
 import { username } from "/js/variables/localStorage.js";
 import API_BASE_URL from "/js/variables/apiEndpoints.js";
-import { createCard } from "./postHTML.js";
-import { filterPosts } from "./filterPosts.js";
+import { createCard } from "/js//posts/postsProfileHTML.js";
+import { filterPosts } from "/js/posts/filterPosts.js";
 
 const allPostsEndpoint = `/social/profiles/${username}/posts`;
 const createPostUrl = `${API_BASE_URL}${allPostsEndpoint}`;

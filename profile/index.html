@@ -63,7 +63,7 @@
           <div
             class="container col-md-9 col-lg-6 second-container feed-section"
           >
-            <div>
+            <div class="post-topSection-profile">
               <button class="col-12 btn btn-primary create-post-btn mt-3 mb-3">
                 Create new post
               </button>
@@ -113,7 +113,7 @@
               </form>
             </div>
 
-            <div class="col-12 mb-2">
+            <div class="col-12 mb-2 post-topSection-profile">
               <div class="row justify-content-between">
                 <h2 class="col-auto">Recent posts</h2>
                 <div class="col-auto dropdown">
@@ -152,6 +152,23 @@
                 <div class="col-12 mb-3 card-container"></div>
               </div>
             </div>
+            <div class="about-section d-none">
+              <div class="row">
+                <div
+                  class="col-12 mb-3 d-flex flex-column profile-about-container"
+                ></div>
+              </div>
+            </div>
+            <div class="friends-section d-none">
+              <div class="row">
+                <div class="col-12 mb-3"></div>
+              </div>
+            </div>
+            <div class="photos-section d-none">
+              <div class="row">
+                <div class="col-12 mb-3"></div>
+              </div>
+            </div>
           </div>
           <div
             class="container col-md-3 d-none d-md-block third-container"
@@ -170,8 +187,9 @@
     <script src="/js/htmlComponentsScripts/loadFirstContainer.js"></script>
     <script src="/js/htmlComponentsScripts/loadThirdContainer.js"></script>
     <script type="module" src="/js/profile/profileHeader.js"></script>
-    <script type="module" src="../js/posts/displayProfilePosts.js"></script>
-    <script type="module" src="../js/posts/createPost.js"></script>
-    <script type="module" src="../js/posts/editPost.js"></script>
+    <script type="module" src="/js/profile/profileTabs.js"></script>
+    <script type="module" src="/js/posts/postsProfile.js"></script>
+    <script type="module" src="/js/posts/createPost.js"></script>
+    <script type="module" src="/js/posts/editPost.js"></script>
   </body>
 </html>

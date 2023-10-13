@@ -1,8 +1,8 @@
 
-import { deleteSelectedPost } from "./deletePost.js";
-import { editSelectedPost } from "./editPost.js";
-import { createNewComment } from "./createComment.js";
-import { formatDate } from "../formating/formateDate.js";
+import { deleteSelectedPost } from "/js/posts/deletePost.js";
+import { editSelectedPost } from "/js/posts/editPost.js";
+import { createNewComment } from "/js/posts/createComment.js";
+import { formatDate } from "/js/formating/formateDate.js";
 import { formateUsername } from "/js/formating/formatUsername.js";
 
 const cardsContainer = document.querySelector(".card-container")
@@ -114,9 +114,7 @@ export function createCard(objectData){
             const bodyMedia = document.createElement("img");
             bodyMedia.classList.add("card-img");
             bodyMedia.src = objectData.media;
-        
             cardBody.append(bodyMedia);
-        
             bodyMedia.addEventListener("click", () => {
                 window.open(bodyMedia.src, '_blank');
             });

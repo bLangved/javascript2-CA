@@ -1,5 +1,5 @@
 import { registerUrl } from "/js/variables/apiEndpoints.js";
-import { checkLength, validateNoroffEmail} from "../validation/inputCheck.js";
+import { checkLength, validateNoroffEmail} from "/js/validation/inputCheck.js";
 import { registerUser } from "/js/autentication/createUser.js";
 
 const form = document.querySelector("#createForm");

@@ -7,7 +7,6 @@ import { filterPosts } from "/js/posts/filterPosts.js";
 
 let filterType = "newest"; 
 let allProfiles = [];
-// let allPosts = [];
 let allPosts = getFromSessionStorage("allPosts") || [];  // Retrieve all posts from sessionStorage when initializing
 let offset = 0;
 const limit = 50;

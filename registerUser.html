@@ -39,6 +39,8 @@
             </div>
           </div>
 
+
+
           <div class="loadingContainer d-flex flex-column pt-3 pb-3 d-none">
             <div class="loadingText mx-auto pb-3">Loading</div>
             <div class="loadingAnimation mx-auto"></div>
@@ -48,25 +50,24 @@
             <div class="row d-flex justify-content-center">
               <div class="card">
                 <div class="card-body">
-                  <section class="text-center">
+
+                  <section class="text-center authErrorContainer">
                     <div id="createUserSucsessful" class="d-none">
                       <span>Account creation was sucsessful!</span><br />
                       <a href="index.html"
-                        ><strong>Click here to go back to login form</strong></a
+                        ><strong
+                          >You will be redirected to login site shortly</strong
+                        ></a
                       >
                     </div>
                     <div id="createUserError" class="d-none">
-                      <span>Account creation was not sucsessful!</span><br />
+                      <span id="createUserErrorMessage"
+                        >Account creation was not sucsessful!</span
+                      ><br />
                       <a href="registerUser.html"
                         ><strong
                           >Click here to refresh site, and try again</strong
-                        ></a
-                      ><br />
-                      <span>or</span><br />
-                      <a href="index.html"
-                        ><strong>Click here to go back to login form</strong></a
-                      >
-                    </div>
+                        ></a>
                   </section>
 
                   <form class="create-form" id="createForm" method="POST">

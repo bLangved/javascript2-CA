@@ -90,7 +90,7 @@ submitButton.addEventListener("click", async (e) => {
             password: password.value, 
         };
         textLogin.textContent = "Logging inn to Chatably"
-        formContainer.classList.add("d-none");
+        form.classList.add("d-none");
         showLoadingAnimation();
         loginUser(loginUrl, userToLogin);
     }

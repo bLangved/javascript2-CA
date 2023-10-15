@@ -10,4 +10,6 @@ function clearStorage() {
     localStorage.removeItem("username");
     localStorage.removeItem("avatar");
     sessionStorage.removeItem("filteredPosts");
+    sessionStorage.removeItem("allPosts");
+    // sessionStorage.removeItem("newAllPosts")
 }

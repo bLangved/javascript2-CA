@@ -1,10 +1,24 @@
 @import "variables";
 
+.placeholder-main{
+    height: 80vh;
+}
+
+// Altered bootstrap classes //
+.card-img{
+    max-height: 20em;
+    object-fit: cover;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
 // --- --- GLOBAL --- --- //
 
 a{
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 }
 
 [aria-current] {
@@ -17,6 +31,60 @@ a{
     background-color: $primary;
     border-color: $primary;
 }
+
+// - Forms - //
+.iconForm-sucsess{
+    color: green;
+}
+.iconForm-error, .error-message{
+    color: red;
+}
+
+/* -- Loading animation -- */
+
+  .loadingText {
+    color: white;
+  }
+  
+  .loadingAnimation {
+    width: 2em;
+    height: 2em;
+    border: 10px solid lightblue;
+    border-top-color: blue;
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+
+/* Used by loading animations */
+@keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+// - Headers - //
+
+.header-1, .header-2, .header-3 {
+    color: map-get($colors, light-primary);
+  }
+  .header-1{
+      font-size: 2rem;
+      padding: 2em 0;
+  }
+  .header-2 {
+      font-size: 1.75rem;
+      padding: 1.5em 0;
+  }
+  .header-3 {
+      font-size: 1.5rem;
+      padding: 1em 0;
+  }
 
 // Variable mixins //
 @mixin HoverObject {
@@ -52,11 +120,47 @@ header{
 }
 
 .navbar-logo{
-    width: 6em;
+    width: 3em;
     height: 3em;
     &:hover{
         @include HoverObject;
     }
+}
+
+.searchbar_header{
+
+}
+
+.searchbar-btn_header{
+    width: 3em;
+    height: 3em;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    &:hover{
+        @include HoverObject;
+    }
+}
+
+.searchbar_header-input-container{
+    position: fixed;
+    top: 4em;
+    right: 0;
+    width: 100%;
+    padding: 1em;
+    border-radius: 0 0 1em 1em;
+    background-color: map-get($colors , light-primary );
+
+    @media (min-width: 768px) {
+        position: static;
+        width: auto;
+        padding: 0;
+        background-color: transparent;
+      }
+}
+
+.searchbar-input_header{
+
 }
 
 .nav-toggler_navbar{
@@ -73,33 +177,42 @@ header{
 }
 
 .custom-nav_header{
-    position: absolute;
+    position: fixed;
     top: 4em;
-    right: 1em;
-    background-color: white;
+    right: 0;
+    width: 100%;
     padding: 1em;
-    border-radius: 1em;
-    width: 20em;
+    border-radius: 0 0 1em 1em;
+    background-color: white;
+    
+    @media (min-width: 576px) {
+        width: 20em;
+        right: 1em;
+        border-radius: 1em;
+    }
 
     & a{
         color: map-get($colors , dark-primary );
     }
 }
 
-.nav-item-profile{
-    @include borderRadius-sm;
+.nav-item_header{
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    & a{
+        @include borderRadius-sm;
+        color: map-get($colors, text-dark);
+        font-size: 1.25rem;
+    }
     & img{
         width: 3em;
         height: 3em;
         border-radius: 50%;
     }
-}
-
-.header-link{
-    @include borderRadius-sm;
-    color: map-get($colors, text-light);
-    font-size: 1.25rem;
-    padding: 0.5em;
+    & i{
+        padding-right: 0.5em;
+    }
     &:hover{
         @include hoverText;
     }
@@ -109,18 +222,21 @@ header{
 // --- MAIN --- //
 
 main{
-    margin-top: 5em;
+    padding-top: 4em;
+    // min-height: 100vh;
 }
 
 // --- FOOTER --- //
 footer{
     background-color: map-get($colors, dark-secondary);
-    height: 7.5em;
     min-width: 100%;
 } 
 .footer-items{
     color: map-get($colors, text-light);
-    height: 100%;
+}
+
+.footer-items a:hover {
+    text-decoration: underline;
 }
 
 
@@ -192,6 +308,7 @@ border-radius: 50%;
     font-size: 1.75rem;
 }
 
+
 .card-top-section img, .card-comment-section img{
     width: 2.5em;
     height: 2.5em;
@@ -199,6 +316,10 @@ border-radius: 50%;
 }
 .card-top-text span:last-child {
 font-size: 0.875rem;
+}
+
+.card-post-options{
+    margin-left: auto;
 }
 
 .card-comment p{
@@ -214,5 +335,19 @@ font-size: 0.875rem;
 }
 
 .profile-img{
-    max-width: 12.5em;
+    cursor: pointer;
+    width: 12.5em;
+    height: 12.5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-image_navbar-container {
+    position: absolute;
+    z-index: 99;
+    top: 21em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: fit-content;
 }

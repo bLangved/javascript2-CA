@@ -1,0 +1,83 @@
+<div class="header-content d-flex align-items-center justify-content-between">
+  <div class="">
+    <a class="navbar-brand" href="/feed/index.html"
+      ><img class="navbar-logo" src="/images/auth-logo-new.png" alt=""
+    /></a>
+  </div>
+  <div class="d-flex searchbar_header">
+    <button
+      class="d-md-none searchbar-btn_header"
+      type="button"
+      aria-label="Toggle searchbar"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <div class="searchbar_header-input-container d-none d-md-block shadow-lg">
+      <input
+        type="text"
+        id="searchbar-header"
+        class="form-control searchbar-input_header"
+        placeholder="Search Chatably"
+      />
+    </div>
+  </div>
+  <nav class="navbar">
+    <button
+      class="nav-toggler_navbar"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <img
+        src="/images/profile/profile-img_default.png"
+        class="avatar-thumbnail"
+      />
+    </button>
+    <div
+      class="collapse navbar-collapse custom-nav_header shadow-lg"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item nav-item_header">
+          <a class="nav-link" href="/profile/index.html">
+            <img
+              src="/images/profile/profile-img_default.png"
+              class="me-2 avatar-thumbnail"
+            />
+            <span>My profile</span>
+          </a>
+        </li>
+        <li class="nav-item nav-item_header active">
+          <a class="nav-link" href="/feed/index.html">
+            <i class="fa-solid fa-rss"></i>
+            <span>Feed</span>
+          </a>
+        </li>
+        <li class="nav-item nav-item_header">
+          <a class="nav-link" href="/placeholder.html">
+            <i class="fa-solid fa-user"></i>
+            <span>My account</span>
+          </a>
+        </li>
+        <li class="nav-item nav-item_header">
+          <a class="nav-link" href="/placeholder.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+        <li class="nav-item nav-item_header">
+          <a class="nav-link log-out-user">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Log out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<script type="module" src="/js/htmlComponentsScripts/loadHeader.js"></script>
+<script src="/js/autentication/logOutUser.js"></script>

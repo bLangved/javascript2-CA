@@ -4,20 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chatably | Login</title>
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <!-- SCSS -->
     <link rel="stylesheet" href="dist/css/styles.css" />
-    <!-- Placeholder Favicon -->
     <link
       rel="shortcut icon"
       href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=16"
       type="image/x-icon"
     />
-    <!-- Fontawesome icons -->
     <script
       src="https://kit.fontawesome.com/4652493b4c.js"
       crossorigin="anonymous"
@@ -32,124 +28,134 @@
           >
             <div class="text-center">
               <img
-                src="/IMAGES/auth-logo.png"
+                src="/IMAGES/auth-logo-new.png"
                 alt="Logo"
                 class="auth-logo mb-3"
               />
-              <p>
+              <p id="textLogin">
                 Chatably helps you stay in touch with the people around you.
               </p>
             </div>
           </div>
 
-          <div class="col-12 auth-form-container mx-auto">
+          <div class="loadingContainer d-flex flex-column pt-3 pb-3 d-none">
+            <div class="loadingText mx-auto pb-3">Loading</div>
+            <div class="loadingAnimation mx-auto"></div>
+          </div>
+
+          <div class="col-12 auth-form-container mx-auto" id="formContainer">
             <div class="row d-flex justify-content-center">
               <div class="card">
                 <div class="card-body">
-                  <form action="./feed/index.html" method="get">
-                    <div class="form-group">
-                      <label for="email">Email</label>
+                  <section class="text-center">
+                    <div id="loginUserSucsessful" class="d-none text-success">
+                      <span>Login was sucsessful! Please wait a moment...</span>
+                    </div>
+                    <div id="loginUserError" class="d-none text-danger">
+                      <span id="errorMessage"></span><br />
+                      <a href="index.html"
+                        ><strong
+                          >Click here to refresh site, and try again</strong
+                        ></a
+                      >
+                    </div>
+                  </section>
+
+                  <form class="login-form" id="loginForm" method="POST">
+                    <div class="form-group mb-3">
+                      <label for="emailLogin">Email</label>
+                      <i
+                        class="fa-solid fa-check iconForm-sucsess d-none"
+                        id="emailLoginSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark iconForm-error d-none"
+                        id="emailLoginError"
+                      ></i>
                       <input
                         type="email"
                         class="form-control"
-                        id="email"
-                        name="email"
+                        id="emailLogin"
+                        name="emailLogin"
                         required
                       />
+                      <span id="emailErrorMessage" class="error-message"></span>
                     </div>
-                    <div class="form-group mt-3">
-                      <label for="password">Password</label>
+                    <div class="form-group mb-4">
+                      <label for="passwordLogin">Password</label>
+                      <i
+                        class="fa-solid fa-check iconForm-sucsess d-none"
+                        id="passwordLoginSucsess"
+                      ></i>
+                      <i
+                        class="fa-solid fa-xmark iconForm-error d-none"
+                        id="passwordLoginError"
+                      ></i>
                       <input
                         type="password"
                         class="form-control"
-                        id="password"
-                        name="password"
+                        id="passwordLogin"
+                        name="passwordLogin"
                         minlength="8"
                         required
                       />
+                      <span
+                        id="passwordErrorMessage"
+                        class="error-message"
+                      ></span>
+                    </div>
+                    <div
+                      id="loginUserErrorMessage"
+                      class="error-message mb-2 mt-2 d-none"
+                    >
+                      Login credentials are not correctly filled out
                     </div>
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block mt-3 col-12"
+                      class="btn btn-primary btn-block col-12"
+                      id="submitButtonLogin"
                     >
                       Login
                     </button>
+                    <div class="text-center mt-4">
+                      <p>
+                        Don't have an account?
+                        <a href="registerUser.html"
+                          ><strong>Register here</strong></a
+                        >.
+                      </p>
+                    </div>
                   </form>
-                  <div class="text-center mt-4">
-                    <p>
-                      Don't have an account?
-                      <a
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#registerModal"
-                        ><strong>Register here</strong></a
-                      >.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Register Modal -->
-      <div
-        class="modal fade"
-        id="registerModal"
-        tabindex="-1"
-        aria-labelledby="registerModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="registerModalLabel">Register</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form action="/profile" method="POST">
-                <div class="form-group">
-                  <label for="registerEmail">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="registerEmail"
-                    name="registerEmail"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="registerPassword">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="registerPassword"
-                    name="registerPassword"
-                    minlength="8"
-                    required
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block mt-4">
-                  Register
-                </button>
-              </form>
-            </div>
-          </div>
+    </main>
+    <footer class="container ps-4 ps-md-0">
+      <div class="row align-items-center footer-items">
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Company</span>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Legal</span>
+          <a href="#terms">Terms of Service</a>
+          <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="col-12 col-md-4 d-flex flex-column text-md-center p-3">
+          <span class="header-3">Support</span>
+          <a href="#faq">FAQ</a>
+          <a href="#help">Help Center</a>
+        </div>
+        <div class="col-12 text-center mt-5 mb-5">
+          <span>© Copyright Chatably</span>
         </div>
       </div>
-    </main>
-    <footer>
-      <div
-        class="d-flex align-items-center justify-content-center footer-items"
-      >
-        <span class="text-center">Copyright Chatably</span>
-      </div>
     </footer>
+    <script type="module" src="js/forms/loginUserForm.js"></script>
+    <script type="module" src="js/autentication/loginUser.js"></script>
   </body>
 </html>
